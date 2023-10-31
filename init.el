@@ -457,10 +457,10 @@
   :defer 1
   :hook (prog-mode . company-mode))
 
-;; (use-package browse-at-remote
-;;   :defer 1
-;;   :config
-;;   (setq browse-at-remote-prefer-symbolic nil))
+(use-package browse-at-remote
+  :defer 1
+  :config
+  (setq browse-at-remote-prefer-symbolic nil))
 
 (custom-set-faces
  '(default ((t (:inherit nil :height 140 :family "Iosevka SS08")))))
