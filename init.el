@@ -191,6 +191,290 @@
     (when (file-exists-p file)
       (load file))))
 
+;;; Dave packages
+
+(setq ring-function 'ignore)
+
+(when (equal system-type 'darwin)
+  (setq mac-command-modifier 'meta)
+  (setq mac-option-modifier 'super))
+
+(defun dd/apply-theme (appearance)
+  "Load theme, taking current system APPEARANCE into consideration."
+  (mapc #'disable-theme custom-enabled-themes)
+  (pcase appearance
+    ('light (load-theme 'modus-operandi t))
+    ('dark (load-theme 'modus-vivendi t))))
+
+(add-hook 'ns-system-appearance-change-functions #'dd/apply-theme)
+
+(use-package meow
+  :defer 1
+  :config
+  (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
+  (setq meow-use-clipboard t)
+  (meow-motion-overwrite-define-key
+   '("j" . meow-next)
+   '("k" . meow-prev)
+   '("<escape>" . ignore))
+  (meow-leader-define-key
+   ;; SPC j/k will run the original command in MOTION state.
+   '("j" . "H-j")
+   '("k" . "H-k")
+   ;; Use SPC (0-9) for digit arguments.
+   '("1" . meow-digit-argument)
+   '("2" . meow-digit-argument)
+   '("3" . meow-digit-argument)
+   '("4" . meow-digit-argument)
+   '("5" . meow-digit-argument)
+   '("6" . meow-digit-argument)
+   '("7" . meow-digit-argument)
+   '("8" . meow-digit-argument)
+   '("9" . meow-digit-argument)
+   '("0" . meow-digit-argument)
+   '("/" . meow-keypad-describe-key)
+   '("?" . meow-cheatsheet))
+  (meow-normal-define-key
+   '("0" . meow-expand-0)
+   '("9" . meow-expand-9)
+   '("8" . meow-expand-8)
+   '("7" . meow-expand-7)
+   '("6" . meow-expand-6)
+   '("5" . meow-expand-5)
+   '("4" . meow-expand-4)
+   '("3" . meow-expand-3)
+   '("2" . meow-expand-2)
+   '("1" . meow-expand-1)
+   '("-" . negative-argument)
+   '(";" . meow-reverse)
+   '("," . meow-inner-of-thing)
+   '("." . meow-bounds-of-thing)
+   '("[" . meow-beginning-of-thing)
+   '("]" . meow-end-of-thing)
+   '("a" . meow-append)
+   '("A" . meow-open-below)
+   '("b" . meow-back-word)
+   '("B" . meow-back-symbol)
+   '("c" . meow-change)
+   '("d" . meow-delete)
+   '("D" . meow-backward-delete)
+   '("e" . meow-next-word)
+   '("E" . meow-next-symbol)
+   '("f" . meow-find)
+   '("g" . meow-cancel-selection)
+   '("G" . meow-grab)
+   '("h" . meow-left)
+   '("H" . meow-left-expand)
+   '("i" . meow-insert)
+   '("I" . meow-open-above)
+   '("j" . meow-next)
+   '("J" . meow-next-expand)
+   '("k" . meow-prev)
+   '("K" . meow-prev-expand)
+   '("l" . meow-right)
+   '("L" . meow-right-expand)
+   '("m" . meow-join)
+   '("n" . meow-search)
+   '("o" . meow-block)
+   '("O" . meow-to-block)
+   '("p" . meow-yank)
+   '("q" . meow-quit)
+   '("Q" . meow-goto-line)
+   '("r" . meow-replace)
+   '("R" . meow-swap-grab)
+   '("s" . meow-kill)
+   '("t" . meow-till)
+   '("u" . meow-undo)
+   '("U" . meow-undo-in-selection)
+   '("v" . meow-visit)
+   '("w" . meow-mark-word)
+   '("W" . meow-mark-symbol)
+   '("x" . meow-line)
+   '("X" . meow-goto-line)
+   '("y" . meow-save)
+   '("Y" . meow-sync-grab)
+   '("z" . meow-pop-selection)
+   '("'" . repeat)
+   '("<escape>" . ignore))
+
+  (meow-global-mode 1))
+
+(use-package eglot
+  :ensure nil
+  :hook ((clojure-mode clojure-ts-mode rust-mode terraform-mode) . eglot-ensure))
+
+(use-package comp
+  :config
+  (setq native-comp-async-report-warnings-errors nil))
+
+(use-package files
+  :config
+  (setq confirm-kill-processes nil)
+  (setq create-lockfiles nil)
+  (setq make-backup-files nil))
+
+(use-package icomplete
+  :init
+  (fido-mode t)
+  (fido-vertical-mode t))
+
+(use-package paredit
+  :hook (prog-mode . enable-paredit-mode))
+
+(use-package winner
+  :init (winner-mode))
+
+(use-package org
+  :defer 1
+  :bind (:map org-mode-map
+              ("<tab>" . org-cycle))
+  :config
+  (require 'org-tempo)                  ; enable `< s TAB` shortcuts
+
+  (setq org-agenda-files "~/Documents/org/agenda-files.org"
+        org-directory "~/Documents/org/"
+
+        org-clock-report-include-clocking-task t
+
+        org-todo-keywords
+        '((sequence
+           "PROJ(p)"
+           "HOLD(h)" "TODO(t)" "STRT(s)" "WAIT(w)"
+           "|" "DONE(d)" "KILL(k)"))
+
+        ;; Refile tweak
+        org-refile-allow-creating-parent-nodes 'confirm)
+
+  (setq org-agenda-custom-commands
+        '(("d" "Day"
+           (;; One block with a standard agenda view
+            (agenda "" ((org-agenda-span 'day)
+                        (org-agenda-start-day "-0d")
+                        (org-agenda-start-on-weekday nil)))
+            ;; My top priority for the day
+            (tags-todo "+PRIORITY=\"A\""
+                       ((org-agenda-overriding-header "Top priority")
+                        (org-agenda-skip-function
+                         '(org-agenda-skip-if nil '(scheduled deadline)))))
+            ;; Unprocessed inbox items
+            (tags "inbox"
+                  ((org-agenda-overriding-header "Inbox")
+                   (org-agenda-max-entries 5)))
+            ;; In-flight tasks
+            (todo "STRT|WAIT"
+                  ((org-agenda-overriding-header "In progress")
+                   (org-agenda-skip-function
+                    '(or (org-agenda-skip-if nil '(scheduled deadline))
+                         (org-agenda-skip-entry-if 'regexp "\\[#A]")))))
+            ;; Next actions
+            (todo "TODO"
+                  ((org-agenda-overriding-header "Next actions")
+                   (org-agenda-max-entries 5)
+                   (org-agenda-skip-function
+                    '(or (org-agenda-skip-if nil '(scheduled deadline))
+                         (org-agenda-skip-entry-if 'regexp "\\[#A]"))))))
+           nil)))
+
+  (setq org-capture-templates
+        '(("i" "Inbox" entry (file "inbox.org"))
+          ("m" "Meeting" entry (file+olp+datetree "notes.org")
+           "* [M] %?"
+           :tree-type month
+           :clock-in t
+           :clock-resume t)
+          ("s" "Story" entry (file+olp+datetree "todo.org")
+           "* TODO [I] %^{ISSUE_NUMBER|PL-}
+  SCHEDULED: %T
+  https://lifecheq.youtrack.cloud/issue//%\\1
+  %?"
+           :tree-type month)
+          ("r" "Review" entry (file+olp+datetree "todo.org")
+           "* TODO [R] %?
+  SCHEDULED: %T"
+           :tree-type month)
+          ("c" "Current clock" entry (clock))))
+
+  (setq org-refile-targets
+        '((nil :maxlevel . 3)
+          (org-agenda-files :maxlevel . 3))
+        org-refile-use-outline-path 'file
+        org-outline-path-complete-in-steps nil))
+
+(use-package org-indent-mode
+  :ensure nil
+  :hook org-mode)
+
+(use-package org-modern
+  :after org
+  :config (global-org-modern-mode 1))
+
+(defvar dd/org-daily-path "~/Documents/org/daily")
+
+(defvar dd/org-daily-template
+  "\n#+STARTUP: showall")
+
+(defun dd/org-daily-filename (date)
+  (concat dd/org-daily-path "/"
+          (format-time-string "%Y-%m-%d" date) ".org"))
+
+(defun dd/org-daily (&optional date)
+  (interactive (list
+                (org-read-date "" 'totime nil nil
+                               (current-time) "")))
+  (setq date (or date (current-time)))
+  (find-file (dd/org-daily-filename date))
+  (when (= 0 (buffer-size))
+    (let ((datestr (format-time-string "#+TITLE: %Y-%m-%d %A" date)))
+      (insert datestr)
+      (insert dd/org-daily-template))))
+
+(defun dd/org-today ()
+  (interactive)
+  (dd/org-daily))
+
+(use-package clojure-mode
+  :mode ("\\.clj(c|s)?\\'" . clojure-mode)
+  :config
+  (setq clojure-toplevel-inside-comment-form t))
+
+(use-package cider
+  :hook (clojure-mode)
+  :config
+  (setq markdown-indent-on-enter nil)
+  ;; Revisit?
+  (setq cider-xref-fn-depth 90))
+
+(use-package zprint-format
+  :hook (clojure-mode)
+  :commands (zprint-format-buffer
+	     zprint-format-region
+	     zprint-format-on-save-mode))
+
+(use-package terraform-mode
+  :mode ("\\.tf\\'" . terraform-mode))
+
+(use-package company
+  :defer 1
+  :hook (prog-mode . company-mode))
+
+;; (use-package browse-at-remote
+;;   :defer 1
+;;   :config
+;;   (setq browse-at-remote-prefer-symbolic nil))
+
+(custom-set-faces
+ '(default ((t (:inherit nil :height 140 :family "Iosevka SS08")))))
+
+(use-package markdown-mode
+  :mode ("\\.md\\'" . markdown-mode))
+
+(use-package tab-bar
+  :bind (("M-[" . #'tab-bar-switch-to-prev-tab)
+	 ("M-]" . #'tab-bar-switch-to-next-tab)))
+
+(setq frame-resize-pixelwise t)
+(setq window-resize-pixelwise t)
+
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; End:
