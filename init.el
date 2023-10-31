@@ -319,6 +319,7 @@
   (fido-vertical-mode t))
 
 (use-package paredit
+  :delight
   :hook (prog-mode . enable-paredit-mode))
 
 (use-package winner
@@ -438,14 +439,13 @@
   (setq clojure-toplevel-inside-comment-form t))
 
 (use-package cider
-  :hook (clojure-mode)
+  :hook (clojure-mode . cider-mode)
   :config
   (setq markdown-indent-on-enter nil)
   ;; Revisit?
   (setq cider-xref-fn-depth 90))
 
 (use-package zprint-format
-  :hook (clojure-mode)
   :commands (zprint-format-buffer
 	     zprint-format-region
 	     zprint-format-on-save-mode))
@@ -455,7 +455,15 @@
 
 (use-package company
   :defer 1
+  :delight
   :hook (prog-mode . company-mode))
+
+(use-package eldoc
+  :delight)
+
+(use-package autorevert
+  :delight arev
+  :init (global-auto-revert-mode 1))
 
 (use-package browse-at-remote
   :defer 1
