@@ -300,7 +300,7 @@
   (meow-global-mode 1))
 
 (use-package eglot
-  :ensure nil
+  :bind (("C-;" . #'eglot-code-actions))
   :hook ((clojure-mode clojure-ts-mode rust-mode terraform-mode) . eglot-ensure))
 
 (use-package xref

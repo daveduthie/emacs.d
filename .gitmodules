@@ -106,6 +106,9 @@
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = git@github.com:magit/with-editor.git
+[submodule "yasnippet"]
+	path = lib/yasnippet
+	url = https://github.com/joaotavora/yasnippet
 [submodule "zprint-format"]
 	path = lib/zprint-format
 	url = https://github.com/dpassen/zprint-format
