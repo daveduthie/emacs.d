@@ -49,6 +49,9 @@
 [submodule "hcl-mode"]
 	path = lib/hcl-mode
 	url = https://github.com/hcl-emacs/hcl-mode
+[submodule "highlight-indent-guides"]
+	path = lib/highlight-indent-guides
+	url = https://github.com/DarthFennec/highlight-indent-guides
 [submodule "llama"]
 	path = lib/llama
 	url = https://git.sr.ht/~tarsius/llama
