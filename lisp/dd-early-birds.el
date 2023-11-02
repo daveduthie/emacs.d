@@ -6,8 +6,8 @@
   (message "Loading Emacs...done (%.3fs)"
            (float-time (time-subtract before-user-init-time
                                       before-init-time)))
-  (setq user-init-file (or load-file-name buffer-file-name))
-  (setq user-emacs-directory (file-name-directory user-init-file))
+  ;(setq user-init-file (or load-file-name buffer-file-name))
+  ;(setq user-emacs-directory (file-name-directory user-init-file))
   (message "Loading %s..." user-init-file)
   (when (< emacs-major-version 27)
     (setq package-enable-at-startup nil)
