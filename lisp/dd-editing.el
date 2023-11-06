@@ -4,10 +4,10 @@
   :config
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
   (setq meow-use-clipboard t)
-  (meow-motion-overwrite-define-key
-   '("j" . meow-next)
-   '("k" . meow-prev)
-   '("<escape>" . ignore))
+  ;; (meow-motion-overwrite-define-key
+  ;;  '("j" . meow-next)
+  ;;  '("k" . meow-prev)
+  ;;  '("<escape>" . ignore))
   (meow-leader-define-key
    ;; SPC j/k will run the original command in MOTION state.
    '("j" . "H-j")
