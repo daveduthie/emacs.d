@@ -5,6 +5,7 @@
   :config
   (setq eglot-sync-connect 0)
   (setq eglot-autoshutdown t)
+  (setq eglot-connect-timeout 120)
   (meow-leader-define-key '(";" . "C-# ;"))
   (meow-leader-define-key '("'" . "C-# '")))
 
@@ -19,9 +20,7 @@
 	("C-n" . #'corfu-next)
 	("C-p" . #'corfu-previous)
 	("<escape>" . #'corfu-quit)
-	("<return>" . #'corfu-insert)
-	("M-d" . #'corfu-show-documentation)
-	("M-l" . #'corfu-show-location))
+	("<return>" . #'corfu-insert))
   :config
   (setq corfu-auto t)
   (global-corfu-mode)
