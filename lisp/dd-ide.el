@@ -23,6 +23,7 @@
 	("M-d" . #'corfu-show-documentation)
 	("M-l" . #'corfu-show-location))
   :config
+  (setq corfu-auto t)
   (global-corfu-mode)
   (setq tab-always-indent 'complete))
 
