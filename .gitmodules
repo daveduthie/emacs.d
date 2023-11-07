@@ -22,15 +22,15 @@
 [submodule "closql"]
 	path = lib/closql
 	url = git@github.com:magit/closql.git
-[submodule "company"]
-	path = lib/company
-	url = https://github.com/company-mode/company-mode
 [submodule "compat"]
 	path = lib/compat
 	url = git@github.com:emacs-compat/compat.git
 [submodule "consult"]
 	path = lib/consult
 	url = https://github.com/minad/consult
+[submodule "corfu"]
+	path = lib/corfu
+	url = https://github.com/minad/corfu
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git

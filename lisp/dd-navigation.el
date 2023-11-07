@@ -1,6 +1,16 @@
 (use-package vertico
   :init (vertico-mode))
 
+(use-package vertico-mouse
+  :load-path "lib/vertico/extensions"
+  :after vertico
+  :config (vertico-mouse-mode))
+
+(use-package vertico-grid
+  :load-path "lib/vertico/extensions"
+  :after vertico
+  :config (vertico-grid-mode))
+
 (use-package orderless
   :init
   (setq completion-styles '(orderless basic)))

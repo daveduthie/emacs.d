@@ -49,11 +49,6 @@
 (use-package terraform-mode
   :mode ("\\.tf\\'" . terraform-mode))
 
-(use-package company
-  :defer 1
-  :delight
-  :hook (prog-mode . company-mode))
-
 (use-package eldoc
   :delight)
 

@@ -13,4 +13,17 @@
          ("M-," . #'xref-go-back)
          ("M-/" . #'xref-find-references)))
 
+(use-package corfu
+  :bind
+  (:map corfu-map
+	("C-n" . #'corfu-next)
+	("C-p" . #'corfu-previous)
+	("<escape>" . #'corfu-quit)
+	("<return>" . #'corfu-insert)
+	("M-d" . #'corfu-show-documentation)
+	("M-l" . #'corfu-show-location))
+  :config
+  (global-corfu-mode)
+  (setq tab-always-indent 'complete))
+
 (provide 'dd-ide)
