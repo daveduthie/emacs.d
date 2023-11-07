@@ -11,4 +11,7 @@
 
 (add-hook 'ns-system-appearance-change-functions #'dd/apply-theme)
 
+(use-package emacs
+  :hook (prog-mode . display-line-numbers-mode))
+
 (provide 'dd-ui)
