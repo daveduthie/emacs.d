@@ -18,6 +18,7 @@
   :config (setq dired-listing-switches "-alh"))
 
 (use-package eldoc
+  :delight
   :when (version< "25" emacs-version)
   :config (global-eldoc-mode))
 

@@ -94,4 +94,8 @@
   :delight
   :hook (prog-mode . enable-paredit-mode))
 
+(use-package autorevert
+  :delight arev
+  :init (global-auto-revert-mode 1))
+
 (provide 'dd-editing)

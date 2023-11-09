@@ -1,3 +1,13 @@
+(use-package tab-bar
+  :bind (("M-[" . #'tab-bar-switch-to-prev-tab)
+	 ("M-]" . #'tab-bar-switch-to-next-tab))
+  :config
+  (setq tab-bar-tab-name-function
+        (lambda ()
+          (if-let ((project (car (last (project-current)))))
+            (file-name-nondirectory (directory-file-name (file-name-directory project)))
+            (buffer-name)))))
+
 (use-package vertico
   :init (vertico-mode))
 

@@ -14,4 +14,10 @@
 (use-package emacs
   :hook (prog-mode . display-line-numbers-mode))
 
+(custom-set-faces
+ '(default ((t (:inherit nil :height 140 :family "Iosevka SS08")))))
+
+(setq frame-resize-pixelwise t)
+(setq window-resize-pixelwise t)
+
 (provide 'dd-ui)
