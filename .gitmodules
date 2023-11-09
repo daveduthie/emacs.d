@@ -67,6 +67,9 @@
 [submodule "llama"]
 	path = lib/llama
 	url = https://git.sr.ht/~tarsius/llama
+[submodule "lua-ts-mode"]
+	path = lib/lua-ts-mode
+	url = https://git.sr.ht/~johnmuhl/lua-ts-mode
 [submodule "magit"]
 	path = lib/magit
 	url = git@github.com:magit/magit.git
