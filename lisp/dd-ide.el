@@ -9,6 +9,10 @@
   (meow-leader-define-key '(";" . "C-# ;"))
   (meow-leader-define-key '("'" . "C-# '")))
 
+(use-package breadcrumb
+  :defer 2
+  :config (breadcrumb-mode))
+
 (use-package xref
   :bind (("M-." . #'xref-find-definitions)
          ("M-," . #'xref-go-back)
