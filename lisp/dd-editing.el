@@ -100,6 +100,7 @@
   :init (global-auto-revert-mode 1))
 
 (use-package which-key
+  :delight
   :defer 3
   :config (which-key-mode t))
 
