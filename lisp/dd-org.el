@@ -84,4 +84,7 @@
   :after org
   :config (global-org-modern-mode 1))
 
+(use-package springbok
+  :load-path "lisp/springbok")
+
 (provide 'dd-org)

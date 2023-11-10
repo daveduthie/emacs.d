@@ -1,8 +1,7 @@
 ;;; init.el --- user-init-file                    -*- lexical-binding: t -*-
 
 (eval-and-compile
-  (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
-  (add-to-list 'load-path (expand-file-name "lisp/springbok" user-emacs-directory)))
+  (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory)))
 
 (defvar config-libs
   '(dd-early-birds
@@ -15,8 +14,7 @@
     dd-org
     dd-tools
     dd-clojure
-    dd-misc-lang
-    springbok))
+    dd-misc-lang))
 
 (dolist (lib config-libs)
   (require lib))

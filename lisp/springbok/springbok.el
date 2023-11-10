@@ -25,6 +25,7 @@ For example:
 	 (trimmed (replace-regexp-in-string "[- ]+" "-" downcased)))
     (replace-regexp-in-string "[^a-z0-9-]" "" trimmed)))
 
+;;;###autoload
 (defun springbok-make-quick-note ()
   (interactive)
   (let* ((title (read-string "Title: "))

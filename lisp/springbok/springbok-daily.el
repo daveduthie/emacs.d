@@ -20,6 +20,7 @@
   (format-time-string "#+TITLE: %Y-%m-%d %A\n" date))
 
 ;; TODO: rename
+;;;###autoload
 (defun springbok-daily (&optional date)
   (interactive (list
                 (org-read-date "" 'totime nil nil
@@ -29,6 +30,7 @@
     (when (= 0 (buffer-size))
       (insert (springbok-daily--initial-content :date date)))))
 
+;;;###autoload
 (defun springbok-today ()
   (interactive)
   (springbok-daily))
