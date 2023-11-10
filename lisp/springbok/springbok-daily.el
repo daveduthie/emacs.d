@@ -66,18 +66,28 @@
   "Previous"
   :transient t
   (interactive)
-  (springbok-daily--find-neighbouring-entry (springbok-daily--buffer-date) nil))
+  (springbok-daily--find-neighbouring-entry (springbok-daily--buffer-date) nil)
+  (transient-setup 'springbok-daily-prev-next))
 
 (transient-define-suffix springbok-daily--next ()
   "Next"
   :transient t
   (interactive)
-  (springbok-daily--find-neighbouring-entry (springbok-daily--buffer-date) t))
+  (springbok-daily--find-neighbouring-entry (springbok-daily--buffer-date) t)
+  (transient-setup 'springbok-daily-prev-next))
 
 (transient-define-prefix springbok-daily-prev-next ()
   "Prefix that waves at the user persistently."
-  [("<" "Previous" springbok-daily--prev)
-   (">" "Next" springbok-daily--next)
-   ("q" "Quit" (lambda () (interactive)))])
+  [[("<" "Previous" springbok-daily--prev)]
+   [(">" "Next" springbok-daily--next)]
+   [("q" "Quit" (lambda () (interactive)))]])
+
+(define-minor-mode springbok-daily-mode
+  "SPRINGBOK daily mode"
+  :lighter " SPD"
+  :keymap
+  (define-keymap
+  "<" #'springbok-daily--prev
+  ">" #'springbok-daily--next))
 
 (provide 'springbok-daily)
