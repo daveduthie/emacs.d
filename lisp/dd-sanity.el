@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (setq ring-function 'ignore)
 
 (use-package comp

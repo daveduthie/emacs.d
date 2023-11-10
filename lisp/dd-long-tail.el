@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; Long tail
 (use-package diff-hl
   :config

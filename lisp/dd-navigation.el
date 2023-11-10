@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package tab-bar
   :bind (("M-[" . #'tab-bar-switch-to-prev-tab)
 	 ("M-]" . #'tab-bar-switch-to-next-tab))

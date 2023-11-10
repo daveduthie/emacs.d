@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 
 ;;; Early birds
 (progn                                  ;     startup

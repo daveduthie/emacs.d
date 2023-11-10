@@ -1,3 +1,5 @@
+;; -*- lexical-binding: t; -*-
+
 (use-package eglot
   :bind (("C-# ;" . #'eglot-code-actions)
          ("C-# '" . #'eglot-rename))
