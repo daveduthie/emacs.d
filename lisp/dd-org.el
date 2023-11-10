@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; Org mode tweaks
 
 (use-package org
@@ -82,64 +83,5 @@
 (use-package org-modern
   :after org
   :config (global-org-modern-mode 1))
-
-;;; Org daily
-
-(defvar dd/org-daily-path "~/Documents/org/daily")
-
-(defvar dd/org-daily-template "")
-
-(defun dd/org-daily-filename (date)
-  (concat dd/org-daily-path "/"
-          (format-time-string "%Y-%m-%d" date) ".org"))
-
-(defun dd/org-daily (&optional date)
-  (interactive (list
-                (org-read-date "" 'totime nil nil
-                               (current-time) "")))
-  (setq date (or date (current-time)))
-  (find-file (dd/org-daily-filename date))
-  (when (= 0 (buffer-size))
-    (let ((datestr (format-time-string "#+TITLE: %Y-%m-%d %A" date)))
-      (insert datestr)
-      (insert dd/org-daily-template))))
-
-(defun dd/org-today ()
-  (interactive)
-  (dd/org-daily))
-
-;;; Quick notes
-
-(defvar dd/org-quick-note-path "~/Documents/org/zk")
-
-(defun dd/asciify-string (string)
-  "Convert STRING to ASCII string. 
-For example: 
-“passé” becomes “passe”"
-  ;; Code originally by Teemu Likonen
-  (with-temp-buffer
-    (insert string)
-    (call-process-region (point-min) (point-max) "iconv" t t nil "-f" "UTF-8" "-t" "ASCII")
-    (buffer-substring-no-properties (point-min) (point-max))))
-
-(defun dd/slug (str)
-  (let* ((downcased (downcase (dd/asciify-string str)))
-         (trimmed (replace-regexp-in-string "[- ]+" "-" downcased)))
-    (replace-regexp-in-string "[^a-z0-9-]" "" trimmed)))
-
-(defun dd/make-quick-note ()
-  (interactive)
-  (let* ((title (read-string "Title: "))
-         (file-name (expand-file-name
-                     (concat
-                      (format-time-string "%Y-%m-%d_%H-%M_")
-                      (dd/slug title)
-                      ".org")
-		     dd/org-quick-note-path)))
-    (find-file file-name)
-    (insert ":PROPERTIES:\n:ID: ")
-    (call-process "uuidgen" nil t)
-    (insert ":END:\n")
-    (insert (concat "#+TITLE: " title))))
 
 (provide 'dd-org)
