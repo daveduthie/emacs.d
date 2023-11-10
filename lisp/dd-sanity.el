@@ -1,6 +1,10 @@
 ;; -*- lexical-binding: t; -*-
 (setq ring-function 'ignore)
 
+(use-package so-long
+  :config
+  (global-so-long-mode))
+
 (use-package comp
   :config
   (setq native-comp-async-report-warnings-errors nil))

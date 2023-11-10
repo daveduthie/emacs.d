@@ -33,4 +33,7 @@
 (use-package winner
   :init (winner-mode))
 
+(use-package window
+  :bind (("M-o" . #'other-window)))
+
 (provide 'dd-navigation)

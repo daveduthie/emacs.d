@@ -99,4 +99,8 @@
   :delight arev
   :init (global-auto-revert-mode 1))
 
+(use-package which-key
+  :defer 3
+  :config (which-key-mode t))
+
 (provide 'dd-editing)
