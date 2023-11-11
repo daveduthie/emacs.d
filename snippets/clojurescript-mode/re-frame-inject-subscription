@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: re-frame: inject subscription
+# key: rfi
+# --
+:<- [${::subscription}]
