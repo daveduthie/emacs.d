@@ -58,7 +58,8 @@
 
        ;; Magit
        `("^magit"
-	 display-buffer-full-frame)
+	 display-buffer-in-direction
+	 (direction . right))
        
        '((or (derived-mode . org-mode)
 	     "\\*Org Agenda\\*")
