@@ -69,16 +69,16 @@
   :transient t
   (interactive)
   (springbok-daily--find-neighbouring-entry (springbok-daily--buffer-date) nil)
-  (transient-setup 'springbok-daily-prev-next))
+  (transient-setup 'springbok-daily-transient))
 
 (transient-define-suffix springbok-daily--next ()
   "Next"
   :transient t
   (interactive)
   (springbok-daily--find-neighbouring-entry (springbok-daily--buffer-date) t)
-  (transient-setup 'springbok-daily-prev-next))
+  (transient-setup 'springbok-daily-transient))
 
-(transient-define-prefix springbok-daily-prev-next ()
+(transient-define-prefix springbok-daily-transient ()
   "Prefix that waves at the user persistently."
   [[("<" "Previous" springbok-daily--prev)]
    [(">" "Next" springbok-daily--next)]
@@ -89,7 +89,15 @@
   :lighter " SPD"
   :keymap
   (define-keymap
-  "<" #'springbok-daily--prev
-  ">" #'springbok-daily--next))
+  "\\" #'springbok-daily-transient
+  ))
+
+;; Hack in TODOs?
+;; (defun org-dblock-write:todos (params)
+;;   (let ((fmt (or (plist-get params :format) "%d. %m. %Y %H:%M:%S")))
+;;     (insert "Last block update at: "
+;;             (format-time-string fmt))
+;;     ;(insert (org-batch-agenda "d"))
+;;     ))
 
 (provide 'springbok-daily)
