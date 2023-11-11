@@ -57,11 +57,6 @@
 	 (direction . right)
 	 (window-width . 0.5))
 
-       ;; Magit
-       `("^magit:$"
-	 display-buffer-pop-up-window
-	 (direction . right))
-
        '((or (derived-mode . org-mode)
 	     "\\*Org Agenda\\*")
 	 (display-buffer-in-tab display-buffer-in-direction)
