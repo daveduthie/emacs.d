@@ -14,10 +14,6 @@
     (set-face-attribute 'diff-refine-removed nil :extend t)
     (set-face-attribute 'diff-refine-added   nil :extend t)))
 
-(use-package dired
-  :defer t
-  :config (setq dired-listing-switches "-alh"))
-
 (use-package eldoc
   :delight
   :when (version< "25" emacs-version)

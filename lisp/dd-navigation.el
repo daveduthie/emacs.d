@@ -36,4 +36,10 @@
 (use-package window
   :bind (("M-o" . #'other-window)))
 
+(use-package dired
+  :defer t
+  :config
+  (setq dired-listing-switches "-alh")
+  (add-hook 'dired-mode-hook #'dired-hide-details-mode))
+
 (provide 'dd-navigation)
