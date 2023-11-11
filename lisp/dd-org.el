@@ -1,10 +1,15 @@
 ;; -*- lexical-binding: t; -*-
 ;;; Org mode tweaks
 
+(defun dd/org-agenda-day ()
+  (interactive)
+  (org-agenda nil "d"))
+
 (use-package org
   :defer 1
-  :bind (:map org-mode-map
-              ("<tab>" . org-cycle))
+  :bind (("<f9>" . dd/org-agenda-day)
+	 :map org-mode-map
+         ("<tab>" . org-cycle))
   :config
   (require 'org-tempo)                  ; enable `< s TAB` shortcuts
 
@@ -85,6 +90,7 @@
   :config (global-org-modern-mode 1))
 
 (use-package springbok
-  :load-path "lisp/springbok")
+  :load-path "lisp/springbok"
+  :bind (("<f12>" . #'springbok-today)))
 
 (provide 'dd-org)
