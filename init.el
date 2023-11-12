@@ -14,7 +14,8 @@
     dd-org
     dd-tools
     dd-clojure
-    dd-misc-lang))
+    dd-misc-lang
+    dd-toggles))
 
 (dolist (lib config-libs)
   (require lib))
