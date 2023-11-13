@@ -4,4 +4,7 @@
   :config
   (setq browse-at-remote-prefer-symbolic nil))
 
+(use-package vterm
+  :bind (("C-x p v" . vterm)))
+
 (provide 'dd-tools)

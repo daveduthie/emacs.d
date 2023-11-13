@@ -30,7 +30,7 @@
 (defconst dd/display-buffer-rules
   (list
    ;; Show shells at the bottom of the frame
-   '("shell\\*$" display-buffer-in-side-window
+   '((or "shell\\*$" "\\*vterm\\*") display-buffer-in-side-window
      (side . bottom)
      ;; (window . root)
      (window-height . 0.3))

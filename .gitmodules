@@ -127,6 +127,9 @@
 [submodule "vertico"]
 	path = lib/vertico
 	url = https://github.com/minad/vertico
+[submodule "vterm"]
+	path = lib/vterm
+	url = https://github.com/akermu/emacs-libvterm
 [submodule "which-key"]
 	path = lib/which-key
 	url = https://github.com/justbur/emacs-which-key
