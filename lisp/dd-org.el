@@ -7,7 +7,7 @@
 
 (use-package org
   :defer 1
-  :bind (("<f9>" . dd/org-agenda-day)
+  :bind (("<f7>" . dd/org-agenda-day)
 	 :map org-mode-map
          ("<tab>" . org-cycle))
   :config
@@ -91,6 +91,7 @@
 
 (use-package springbok
   :load-path "lisp/springbok"
-  :bind (("<f12>" . #'springbok-today)))
+  :commands (springbok-make-quick-note springbok-today)
+  :bind (("<f8>" . #'springbok-today)))
 
 (provide 'dd-org)
