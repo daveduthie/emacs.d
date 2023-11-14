@@ -15,11 +15,17 @@
 (use-package emacs
   :hook (prog-mode . display-line-numbers-mode))
 
-(custom-set-faces
- '(default ((t (:inherit nil :height 140 :family "Iosevka SS08")))))
+(use-package modus-themes
+  :defer t
+  :config
+  (setq modus-themes-mixed-fonts t)
+  (setq frame-resize-pixelwise t)
+  (setq window-resize-pixelwise t)
+  (set-face-attribute 'default nil :inherit nil :height 140 :family "Iosevka SS08")
+  (set-face-attribute 'variable-pitch nil :inherit nil :height 160 :family "Optima"))
 
-(setq frame-resize-pixelwise t)
-(setq window-resize-pixelwise t)
+(use-package face-remap
+  :hook (org-mode . (lambda () (variable-pitch-mode t))))
 
 ;;; Buffer rules
 
