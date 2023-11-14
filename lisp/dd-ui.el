@@ -51,12 +51,6 @@
      (window-parameters . ((no-delete-other-windows . t)))
      (window-width . 0.3))
 
-   ;; test files go to the right
-   `("[-_]test"
-     display-buffer-in-direction
-     (direction . right)
-     (window-width . 0.5))
-
    '((or (derived-mode . org-mode)
 	 "\\*Org Agenda\\*")
      (display-buffer-in-tab display-buffer-in-direction)
