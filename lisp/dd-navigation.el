@@ -40,6 +40,7 @@
   :defer t
   :config
   (setq dired-listing-switches "-alh")
+  (setq dired-free-space nil)
   (add-hook 'dired-mode-hook #'dired-hide-details-mode))
 
 (provide 'dd-navigation)
