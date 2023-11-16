@@ -38,6 +38,7 @@
   :defer t
   :commands (magit-add-section-hook)
   :config
+  (setq magit-diff-refine-hunk t)
   (magit-add-section-hook 'magit-status-sections-hook
                           'magit-insert-modules
                           'magit-insert-stashes
