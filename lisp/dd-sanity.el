@@ -1,5 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 (setq ring-bell-function 'ignore)
+(setq use-short-answers t)
 
 (use-package so-long
   :config
