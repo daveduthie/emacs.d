@@ -16,13 +16,13 @@
   :hook (prog-mode . display-line-numbers-mode))
 
 (use-package modus-themes
-  :defer t
+  :init (load-theme 'modus-operandi)
   :config
   (setq modus-themes-mixed-fonts t)
   (setq frame-resize-pixelwise t)
   (setq window-resize-pixelwise t)
-  (set-face-attribute 'default nil :inherit nil :height 140 :family "Iosevka SS08")
-  (set-face-attribute 'variable-pitch nil :inherit nil :height 160 :family "Optima"))
+  (set-face-attribute 'fixed-pitch nil :inherit nil :height 140 :family "Iosevka SS08")
+  (set-face-attribute 'variable-pitch nil :inherit 'default :height 1.1 :family "Optima"))
 
 (use-package face-remap
   :hook (org-mode . (lambda () (variable-pitch-mode t))))
@@ -38,7 +38,7 @@
    ;; Show shells at the bottom of the frame
    '((or "shell\\*$" "\\*vterm\\*" "\\*cider-repl") display-buffer-in-side-window
      (side . bottom)
-     ;; (window . root)
+     (window . root)
      (window-height . 0.3))
 
    ;; Compilation output, grep, references, etc. go to the right
@@ -50,14 +50,14 @@
      (window-width . 0.4))
 
    ;; Show directory browser in a left side bar
-   '((derived-mode . dired-mode)
-     display-buffer-in-side-window
-     (side . left)
-     (slot . 0)
-     (window-parameters . ((no-delete-other-windows . t)))
-     (window-width . 0.3))
+   ;; '((derived-mode . dired-mode)
+   ;;   display-buffer-in-side-window
+   ;;   (side . left)
+   ;;   (slot . 0)
+   ;;   (window-parameters . ((no-delete-other-windows . t)))
+   ;;   (window-width . 0.3))
 
-   '((or (derived-mode . org-mode)
+   '((or (derived-mode . org-mode) ; TODO: limit to org directory
 	 "\\*Org Agenda\\*")
      (display-buffer-in-tab display-buffer-in-direction)
      (tab-name . "🚀 Org"))
