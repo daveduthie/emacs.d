@@ -43,4 +43,10 @@
   (setq dired-free-space nil)
   (add-hook 'dired-mode-hook #'dired-hide-details-mode))
 
+(use-package consult
+  :bind (("C-c i". #'consult-imenu)
+	 ("C-x p C-b" . #'consult-project-buffer)
+	 ("C-x b" . #'consult-buffer)
+	 ("C-x p x" . #'consult-ripgrep)))
+
 (provide 'dd-navigation)
