@@ -6,7 +6,7 @@
   (org-agenda nil "d"))
 
 (use-package org
-  :defer 1
+  :defer t
   :bind (("<f7>" . dd/org-agenda-day)
 	 :map org-mode-map
          ("<tab>" . org-cycle))
@@ -81,6 +81,48 @@
           (org-agenda-files :maxlevel . 3))
         org-refile-use-outline-path 'file
         org-outline-path-complete-in-steps nil))
+
+(add-hook 'org-mode-hook (lambda () (setq-local line-spacing 0.1)))
+
+(eval-after-load 'org
+  '(setq org-src-block-faces
+	 '(("emacs-lisp" modus-themes-nuanced-magenta)
+	   ("elisp" modus-themes-nuanced-magenta)
+	   ("clojure" modus-themes-nuanced-magenta)
+	   ("clojurescript" modus-themes-nuanced-magenta)
+	   ("c" modus-themes-nuanced-blue)
+	   ("c++" modus-themes-nuanced-blue)
+	   ("sh" modus-themes-nuanced-green)
+	   ("shell" modus-themes-nuanced-green)
+	   ("html" modus-themes-nuanced-yellow)
+	   ("xml" modus-themes-nuanced-yellow)
+	   ("css" modus-themes-nuanced-red)
+	   ("scss" modus-themes-nuanced-red)
+	   ("python" modus-themes-nuanced-green)
+	   ("ipython" modus-themes-nuanced-magenta)
+	   ("r" modus-themes-nuanced-cyan)
+	   ("js" modus-themes-nuanced-cyan)
+	   ("yaml" modus-themes-nuanced-cyan)
+	   ("conf" modus-themes-nuanced-cyan)
+	   ("docker" modus-themes-nuanced-cyan)
+	   ("dockerfile" modus-themes-nuanced-cyan))))
+
+;;; Make org mode easier on the eyes. Should this move?
+
+(eval-after-load 'org
+  '(mapc
+    (lambda (face) (set-face-attribute face nil :inherit 'fixed-pitch))
+    (list 'org-code
+	  'org-link
+	  'org-block
+	  'org-table
+	  'org-block-begin-line
+	  'org-block-end-line
+	  'org-meta-line
+	  'org-document-info-keyword)))
+
+(use-package ox-md
+  :after org-mode)
 
 (use-package org-indent-mode
   :hook org-mode)
