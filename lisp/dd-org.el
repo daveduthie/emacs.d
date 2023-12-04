@@ -133,7 +133,7 @@
 
 (use-package springbok
   :load-path "lisp/springbok"
-  :commands (springbok-make-quick-note springbok-today)
+  :commands (springbok-make-quick-note springbok-today springbok-daily)
   :bind (("<f8>" . #'springbok-today)))
 
 (provide 'dd-org)
