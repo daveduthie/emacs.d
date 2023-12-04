@@ -46,6 +46,9 @@
 [submodule "dockerfile-mode"]
 	path = lib/dockerfile-mode
 	url = https://github.com/spotify/dockerfile-mode
+[submodule "doom-themes"]
+	path = lib/doom-themes
+	url = https://github.com/doomemacs/themes
 [submodule "emacsql"]
 	path = lib/emacsql
 	url = git@github.com:magit/emacsql.git
