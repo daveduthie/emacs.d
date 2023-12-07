@@ -1,7 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package meow
-  :defer 1
   :config
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
   (setq meow-use-clipboard t)

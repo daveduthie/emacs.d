@@ -1,6 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 (use-package clojure-mode
   :mode ("\\.clj(c|s)?\\'" . clojure-mode)
+  :hook (clojure-mode . eglot-ensure)
   :config
   (setq clojure-toplevel-inside-comment-form t))
 
