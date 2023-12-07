@@ -1,20 +1,21 @@
 ;;; early-init.el --- earliest birds               -*- lexical-binding: t -*-
 
+(setq gc-cons-threshold (* 50 1000 1000))
+(setq package-enable-at-startup nil)
 (setq load-prefer-newer t)
 
-(let ((dir (file-name-directory (or load-file-name buffer-file-name))))
-  (add-to-list 'load-path (expand-file-name "lib/compat" dir))
-  (add-to-list 'load-path (expand-file-name "lib/auto-compile" dir)))
-(require 'auto-compile)
-(auto-compile-on-load-mode)
-(auto-compile-on-save-mode)
+(scroll-bar-mode 0)
+(tool-bar-mode 0)
 
-(setq package-enable-at-startup nil)
+(use-package compat
+  :defer t
+  :load-path "lib/compat")
 
-(with-eval-after-load 'package
-  (add-to-list 'package-archives
-               (cons "melpa" "https://melpa.org/packages/")
-               t))
+(use-package auto-compile
+  :load-path "lib/auto-compile"
+  :config
+  (auto-compile-on-load-mode)
+  (auto-compile-on-save-mode))
 
 ;; Local Variables:
 ;; no-byte-compile: t

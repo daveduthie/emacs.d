@@ -55,6 +55,9 @@
 [submodule "epkg"]
 	path = lib/epkg
 	url = git@github.com:emacscollective/epkg.git
+[submodule "exec-path-from-shell"]
+	path = lib/exec-path-from-shell
+	url = https://github.com/purcell/exec-path-from-shell
 [submodule "f"]
 	path = lib/f
 	url = https://github.com/rejeep/f.el
@@ -67,6 +70,9 @@
 [submodule "highlight-indent-guides"]
 	path = lib/highlight-indent-guides
 	url = https://github.com/DarthFennec/highlight-indent-guides
+[submodule "hl-todo"]
+	path = lib/hl-todo
+	url = https://github.com/tarsius/hl-todo
 [submodule "llama"]
 	path = lib/llama
 	url = https://git.sr.ht/~tarsius/llama
@@ -118,6 +124,9 @@
 [submodule "sqlite3"]
 	path = lib/sqlite3
 	url = git@github.com:pekingduck/emacs-sqlite3-api.git
+[submodule "tempel"]
+	path = lib/tempel
+	url = https://github.com/minad/tempel
 [submodule "terraform-mode"]
 	path = lib/terraform-mode
 	url = https://github.com/hcl-emacs/terraform-mode

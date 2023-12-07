@@ -97,20 +97,6 @@
   :defer t
   :config (cl-pushnew 'tramp-own-remote-path tramp-remote-path))
 
-;;; Tequila worms
-
-(progn ;     startup
-  (message "Loading %s...done (%.3fs)" user-init-file
-           (float-time (time-subtract (current-time)
-                                      before-user-init-time)))
-  (add-hook 'after-init-hook
-            (lambda ()
-              (message
-               "Loading %s...done (%.3fs) [after-init]" user-init-file
-               (float-time (time-subtract (current-time)
-                                          before-user-init-time))))
-            t))
-
 (progn ;     personalize
   (let ((file (expand-file-name (concat (user-real-login-name) ".el")
                                 user-emacs-directory)))

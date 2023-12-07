@@ -1,7 +1,10 @@
 ;; -*- lexical-binding: t; -*-
-(when (equal system-type 'darwin)
-  (setq mac-command-modifier 'meta)
-  (setq mac-option-modifier 'super))
+
+(setq inhibit-startup-buffer-menu t)
+(setq inhibit-startup-screen t)
+(setq inhibit-startup-echo-area-message "locutus")
+(setq initial-buffer-choice t)
+(setq initial-scratch-message "")
 
 (defun dd/apply-theme (appearance)
   "Load theme, taking current system APPEARANCE into consideration."
@@ -16,7 +19,7 @@
   :hook (prog-mode . display-line-numbers-mode))
 
 (use-package modus-themes
-  :init (load-theme 'modus-operandi)
+  :init (load-theme 'modus-vivendi)
   :config
   (setq modus-themes-mixed-fonts t)
   (setq frame-resize-pixelwise t)
@@ -48,14 +51,6 @@
      (slot . 0)
      (window-parameters . ((no-delete-other-windows . t)))
      (window-width . 0.4))
-
-   ;; Show directory browser in a left side bar
-   ;; '((derived-mode . dired-mode)
-   ;;   display-buffer-in-side-window
-   ;;   (side . left)
-   ;;   (slot . 0)
-   ;;   (window-parameters . ((no-delete-other-windows . t)))
-   ;;   (window-width . 0.3))
 
    '((or (derived-mode . org-mode) ; TODO: limit to org directory
 	 "\\*Org Agenda\\*")

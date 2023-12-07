@@ -13,3 +13,5 @@
 /transient/
 /tree-sitter/
 /eshell/*
+/bookmarks
+/.org-id-locations
