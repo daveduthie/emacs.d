@@ -6,26 +6,26 @@
 (setq initial-buffer-choice t)
 (setq initial-scratch-message "")
 
-(defun dd/apply-theme (appearance)
-  "Load theme, taking current system APPEARANCE into consideration."
-  (mapc #'disable-theme custom-enabled-themes)
-  (pcase appearance
-    ('light (load-theme 'modus-operandi t))
-    ('dark (load-theme 'modus-vivendi t))))
-
-(add-hook 'ns-system-appearance-change-functions #'dd/apply-theme)
-
-(use-package emacs
-  :hook (prog-mode . display-line-numbers-mode))
-
 (use-package modus-themes
-  :init (load-theme 'modus-vivendi)
+  :init (load-theme 'modus-operandi t t)
   :config
   (setq modus-themes-mixed-fonts t)
   (setq frame-resize-pixelwise t)
   (setq window-resize-pixelwise t)
   (set-face-attribute 'fixed-pitch nil :inherit nil :height 140 :family "Iosevka SS08")
-  (set-face-attribute 'variable-pitch nil :inherit 'default :height 1.1 :family "Optima"))
+  (set-face-attribute 'variable-pitch nil :inherit 'default :height 1.1 :family "Optima")
+
+  (defun dd/apply-theme (appearance)
+    "Load theme, taking current system APPEARANCE into consideration."
+    (mapc #'disable-theme custom-enabled-themes)
+    (pcase appearance
+      ('light (load-theme 'modus-operandi-tinted t))
+      ('dark (load-theme 'modus-vivendi-tinted t))))
+
+  (add-hook 'ns-system-appearance-change-functions #'dd/apply-theme))
+
+(use-package emacs
+  :hook (prog-mode . display-line-numbers-mode))
 
 (use-package face-remap
   :hook (org-mode . (lambda () (variable-pitch-mode t))))
