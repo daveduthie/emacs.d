@@ -49,4 +49,10 @@
 	 ("C-x b" . #'consult-buffer)
 	 ("C-x p x" . #'consult-ripgrep)))
 
+(use-package isearch
+  :defer t
+  :config
+  (setq isearch-wrap-pause 'no)
+  (setq isearch-resume-in-command-history t))
+
 (provide 'dd-navigation)
