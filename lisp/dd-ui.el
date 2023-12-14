@@ -12,8 +12,8 @@
   (setq modus-themes-mixed-fonts t)
   (setq frame-resize-pixelwise t)
   (setq window-resize-pixelwise t)
-  (set-face-attribute 'fixed-pitch nil :inherit nil :height 140 :family "Iosevka SS08")
-  (set-face-attribute 'variable-pitch nil :inherit 'default :height 1.1 :family "Optima")
+  (set-face-attribute 'fixed-pitch nil :inherit nil :height 140 :family "Iosevka SS09")
+  (set-face-attribute 'variable-pitch nil :inherit 'default :height 1.0 :family "Iosevka Etoile")
 
   (defun dd/apply-theme (appearance)
     "Load theme, taking current system APPEARANCE into consideration."
@@ -39,7 +39,7 @@
 (defconst dd/display-buffer-rules
   (list
    ;; Show shells at the bottom of the frame
-   '((or "shell\\*$" "\\*vterm\\*" "\\*cider-repl" "\\*scheme\\*") display-buffer-in-side-window
+   '((or "shell\\*$" "\\*vterm" "\\*cider-repl" "\\*scheme\\*") display-buffer-in-side-window
      (side . bottom)
      (window . root)
      (window-height . 0.3))
@@ -52,8 +52,8 @@
      (window-parameters . ((no-delete-other-windows . t)))
      (window-width . 0.4))
 
-   '((or (derived-mode . org-mode) ; TODO: limit to org directory
-	 "\\*Org Agenda\\*")
+   '((and (derived-mode . org-mode)
+	  (or "\\*Org Agenda\\*" "[[:digit:]]\\{4\\}-[[:digit:]]\\{2\\}-[[:digit:]]\\{2\\}"))
      (display-buffer-in-tab display-buffer-in-direction)
      (tab-name . "🚀 Org"))
    ;;
