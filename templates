@@ -3,13 +3,14 @@
 fundamental-mode ;; Available everywhere
 
 (today (format-time-string "%Y-%m-%d"))
+(uuid (string-trim (shell-command-to-string "uuidgen")))
 
 prog-mode
 
-(fixme (if (derived-mode-p 'emacs-lisp-mode) ";; " comment-start) "FIXME(dd) ")
-(todo (if (derived-mode-p 'emacs-lisp-mode) ";; " comment-start) "TODO(dd) ")
-(bug (if (derived-mode-p 'emacs-lisp-mode) ";; " comment-start) "BUG(dd) ")
-(hack (if (derived-mode-p 'emacs-lisp-mode) ";; " comment-start) "HACK(dd) ")
+(fixme comment-start "FIXME(dd) ")
+(todo comment-start "TODO(dd) ")
+(bug comment-start "BUG(dd) ")
+(hack comment-start "HACK(dd) ")
 
 clojure-mode
 
@@ -18,6 +19,7 @@ clojure-mode
 clojurescript-mode
 
 (rfi ":<- [" p "]" n>)
+(ppp "[:pre (with-out-str (cljs.pprint/pprint {" p "}))]")
 
 latex-mode
 
@@ -155,8 +157,9 @@ org-mode
 (src "#+begin_src " q n r n "#+end_src")
 (gnuplot "#+begin_src gnuplot :var data=" (p "table") " :file " (p "plot.png") n r n "#+end_src" :post (org-edit-src-code))
 (elisp "#+begin_src emacs-lisp" n r n "#+end_src" :post (org-edit-src-code))
+(markdown "#+begin_src markdown" n r n "#+end_src" :post (org-edit-src-code))
 (inlsrc "src_" p "{" q "}")
-(title "#+title: " p n "#+author: Daniel Mendler" n "#+language: en")
+(title "#+title: " p n "#+author: David Duthie" n "#+language: en")
 
 ;; Local Variables:
 ;; mode: lisp-data
