@@ -26,18 +26,14 @@
 
 ;;;; Sync deps - not quite in working order
 
-(defun dd/sync-deps-aliases (aliases)
-  (apply #'concat
-	 "[ "
-	 (append (mapcar (lambda (x) (concat ":" x " ")) (split-string aliases " "))
-		 '("]"))))
-
 (defun dd/sync-deps (&optional aliases)
-  (interactive (list (completing-read "Aliases: " nil)))
-  (message
-   (cider-nrepl-sync-request:eval
-    (format "((requiring-resolve 'clojure.repl.deps/sync-deps) %s)"
-	    (dd/sync-deps-aliases aliases)))))
+  (interactive (list (completing-read "Aliases: " '("[ :dev ]"))))
+  (let ((request
+	 (format
+	  "((requiring-resolve 'clojure.repl.deps/sync-deps) %s)"
+	  aliases) ))
+    (message request)
+    (message (cider-nrepl-sync-request:eval request))))
 
 ;; Eval text register
 
