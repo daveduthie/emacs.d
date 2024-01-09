@@ -23,7 +23,7 @@
     (url-retrieve
      (concat dd-toggl--toggl-base-url path)
      (lambda (&rest _args)
-       (callback (dd-toggl--parse-json-resp))))))
+       (funcall callback (dd-toggl--parse-json-resp))))))
 
 (defun dd-toggl--parse-json-resp ()
   (goto-char url-http-end-of-headers)
