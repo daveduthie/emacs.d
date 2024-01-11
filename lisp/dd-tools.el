@@ -13,4 +13,8 @@
     (setq vterm-buffer-name (concat "*vterm " (project-name (project-current)) "*"))
     (apply orig-fun args)))
 
+(use-package dd-toggl
+  :load-path "lisp"
+  :commands (dd-toggl-start-from-region dd-toggl-stop-current-task))
+
 (provide 'dd-tools)
