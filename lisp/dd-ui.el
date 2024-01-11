@@ -5,23 +5,27 @@
 (setq inhibit-startup-echo-area-message "locutus")
 (setq initial-buffer-choice t)
 (setq initial-scratch-message "")
+(setq frame-resize-pixelwise t)
+(setq window-resize-pixelwise t)
+
+(set-face-attribute 'fixed-pitch nil :inherit nil :height 140 :family "Iosevka SS09")
+(set-face-attribute 'variable-pitch nil :inherit 'default :height 1.0 :family "Iosevka Etoile")
 
 (use-package modus-themes
+  :disabled t
   :init (load-theme 'modus-operandi t t)
   :config
-  (setq modus-themes-mixed-fonts t)
-  (setq frame-resize-pixelwise t)
-  (setq window-resize-pixelwise t)
-  (set-face-attribute 'fixed-pitch nil :inherit nil :height 140 :family "Iosevka SS09")
-  (set-face-attribute 'variable-pitch nil :inherit 'default :height 1.0 :family "Iosevka Etoile")
+  (setq modus-themes-mixed-fonts t))
 
-  (defun dd/apply-theme (appearance)
-    "Load theme, taking current system APPEARANCE into consideration."
-    (mapc #'disable-theme custom-enabled-themes)
-    (pcase appearance
-      ('light (load-theme 'modus-operandi-tinted t))
-      ('dark (load-theme 'modus-vivendi-tinted t))))
+(defun dd/apply-theme (appearance)
+  "Load theme, taking current system APPEARANCE into consideration."
+  (mapc #'disable-theme custom-enabled-themes)
+  (pcase appearance
+    ('light (load-theme 'doom-oksolar-light t))
+    ('dark (load-theme 'doom-oksolar-dark t))))
 
+(use-package doom-themes
+  :config
   (add-hook 'ns-system-appearance-change-functions #'dd/apply-theme))
 
 (use-package emacs
