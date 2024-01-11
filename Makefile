@@ -40,3 +40,6 @@ codespell-fix:
 	  etc/codespell/ignore-files | tr "\\n" ",")
 
 endif
+
+update-drones:
+	git submodule update --remote --rebase --jobs=10; make bootstrap native
