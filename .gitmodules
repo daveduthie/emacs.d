@@ -73,6 +73,9 @@
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
+[submodule "graphql-ts-mode"]
+	path = lib/graphql-ts-mode
+	url = https://git.sr.ht/~joram/graphql-ts-mode
 [submodule "hcl-mode"]
 	path = lib/hcl-mode
 	url = https://github.com/hcl-emacs/hcl-mode
