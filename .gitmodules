@@ -85,6 +85,9 @@
 [submodule "hl-todo"]
 	path = lib/hl-todo
 	url = https://github.com/tarsius/hl-todo
+[submodule "ht"]
+	path = lib/ht
+	url = https://github.com/Wilfred/ht.el
 [submodule "jinx"]
 	path = lib/jinx
 	url = https://github.com/minad/jinx
@@ -115,6 +118,9 @@
 [submodule "org-modern"]
 	path = lib/org-modern
 	url = https://github.com/minad/org-modern
+[submodule "ox-pandoc"]
+	path = lib/ox-pandoc
+	url = https://github.com/emacsorphanage/ox-pandoc
 [submodule "paredit"]
 	path = lib/paredit
 	url = https://mumble.net/~campbell/git/paredit.git
