@@ -14,6 +14,9 @@
 (use-package yaml-ts-mode
   :mode ("\\.ya?ml\\'"))
 
+(use-package highligh-indent-guides
+  :hook ((yaml-ts-mode sh-mode) . highlight-indent-guides-mode))
+
 (use-package lua-ts-mode
   :mode ("\\.lua\\'"))
 
