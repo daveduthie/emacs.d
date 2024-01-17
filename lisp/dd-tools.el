@@ -17,4 +17,16 @@
   :load-path "lisp"
   :commands (dd-toggl-start-from-region dd-toggl-stop-current-task))
 
+(use-package jinx
+  :defer 2
+  :config (global-jinx-mode))
+
+(use-package epa
+  :defer t
+  :config
+  (setf epa-pinentry-mode 'loopback))
+
+(use-package ox-pandoc
+  :after ox)
+
 (provide 'dd-tools)
