@@ -2,7 +2,9 @@
 
 (use-package terraform-mode
   :mode ("\\.tf\\'" . terraform-mode)
-  :hook (terraform-mode . eglot-ensure))
+  :hook
+  (terraform-mode . eglot-ensure)
+  (terraform-mode . electric-pair-mode))
 
 (use-package markdown-mode
   :mode ("\\.md\\'" . markdown-mode))
