@@ -1,6 +1,9 @@
 [include]
 	path = .gitremotes
 	path = .borgconfig
+[submodule "all-the-icons"]
+	path = lib/all-the-icons
+	url = https://github.com/domtronn/all-the-icons.el
 [submodule "async"]
 	path = lib/async
 	url = https://github.com/jwiegley/emacs-async
@@ -52,6 +55,9 @@
 [submodule "doom-themes"]
 	path = lib/doom-themes
 	url = https://github.com/doomemacs/themes
+[submodule "dumb-jump"]
+	path = lib/dumb-jump
+	url = https://github.com/jacktasia/dumb-jump
 [submodule "emacsql"]
 	path = lib/emacsql
 	url = git@github.com:magit/emacsql.git
@@ -133,6 +139,12 @@
 [submodule "pcre2el"]
 	path = lib/pcre2el
 	url = https://github.com/joddie/pcre2el
+[submodule "pfuture"]
+	path = lib/pfuture
+	url = https://github.com/Alexander-Miller/pfuture
+[submodule "popup"]
+	path = lib/popup
+	url = https://github.com/auto-complete/popup-el
 [submodule "prettier-js"]
 	path = lib/prettier-js
 	url = https://github.com/prettier/prettier-emacs
@@ -154,6 +166,9 @@
 [submodule "sqlite3"]
 	path = lib/sqlite3
 	url = git@github.com:pekingduck/emacs-sqlite3-api.git
+[submodule "string-inflection"]
+	path = lib/string-inflection
+	url = https://github.com/akicho8/string-inflection
 [submodule "tempel"]
 	path = lib/tempel
 	url = https://github.com/minad/tempel
@@ -163,6 +178,9 @@
 [submodule "transient"]
 	path = lib/transient
 	url = git@github.com:magit/transient.git
+[submodule "treemacs"]
+	path = lib/treemacs
+	url = https://github.com/Alexander-Miller/treemacs
 [submodule "treepy"]
 	path = lib/treepy
 	url = git@github.com:volrath/treepy.el.git
