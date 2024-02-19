@@ -42,4 +42,5 @@ codespell-fix:
 endif
 
 update-drones:
-	git submodule update --remote --rebase --jobs=10; make bootstrap native
+	git submodule update --remote --rebase --jobs=10
+	make bootstrap
