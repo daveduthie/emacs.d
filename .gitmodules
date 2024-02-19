@@ -154,6 +154,9 @@
 [submodule "sqlite3"]
 	path = lib/sqlite3
 	url = git@github.com:pekingduck/emacs-sqlite3-api.git
+[submodule "string-inflection"]
+	path = lib/string-inflection
+	url = https://github.com/akicho8/string-inflection
 [submodule "tempel"]
 	path = lib/tempel
 	url = https://github.com/minad/tempel
