@@ -27,6 +27,7 @@
   (setf epa-pinentry-mode 'loopback))
 
 (use-package ox-pandoc
-  :after ox)
+  :after ox
+  :defer t)
 
 (provide 'dd-tools)
