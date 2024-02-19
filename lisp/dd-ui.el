@@ -22,7 +22,7 @@
   (mapc #'disable-theme custom-enabled-themes)
   (pcase appearance
     ('light (load-theme 'doom-oksolar-light t))
-    ('dark (load-theme 'doom-oksolar-dark t))))
+    ('dark (load-theme 'doom-wilmersdorf t))))
 
 (use-package doom-themes
   :config
