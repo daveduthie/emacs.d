@@ -49,6 +49,10 @@
 	 ("C-x b" . #'consult-buffer)
 	 ("C-x p x" . #'consult-ripgrep)))
 
+(use-package recentf
+  :defer 1
+  :init (recentf-mode 1))
+
 (use-package isearch
   :defer t
   :config
