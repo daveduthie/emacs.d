@@ -3,12 +3,14 @@
   :mode ("\\.clj(c|s)?\\'" . clojure-mode)
   :hook (clojure-mode . eglot-ensure)
   :config
-  (setq clojure-toplevel-inside-comment-form t))
+  (setq clojure-toplevel-inside-comment-form t)
+  :delight)
 
 (use-package zprint-format
   :commands (zprint-format-buffer
 	     zprint-format-region
-	     zprint-format-on-save-mode))
+	     zprint-format-on-save-mode)
+  :delight zprint-format-on-save-mode)
 
 ;; def portal to the dev namespace to allow dereferencing via @dev/portal
 (defun portal.api/open ()
@@ -57,6 +59,7 @@
   :config
   (setq markdown-indent-on-enter nil)
   ;; Revisit?
-  (setq cider-xref-fn-depth 90))
+  (setq cider-xref-fn-depth 90)
+  :delight)
 
 (provide 'dd-clojure)
