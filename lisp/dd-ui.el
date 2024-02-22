@@ -43,7 +43,7 @@
 (defconst dd/display-buffer-rules
   (list
    ;; Show shells at the bottom of the frame
-   '((or "shell\\*$" "\\*vterm" "\\*cider-repl" "\\*scheme\\*") display-buffer-in-side-window
+   '((or "shell\\*$" "\\*vterm" "\\*cider-repl" "\\*scheme\\*" "\\*SQL") display-buffer-in-side-window
      (side . bottom)
      (window . root)
      (window-height . 0.3))
