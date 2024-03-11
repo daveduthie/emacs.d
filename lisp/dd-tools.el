@@ -19,7 +19,8 @@
 
 (use-package jinx
   :defer 2
-  :config (global-jinx-mode))
+  :config (global-jinx-mode)
+  :delight jinx-mode)
 
 (use-package epa
   :defer t
@@ -29,5 +30,15 @@
 (use-package ox-pandoc
   :after ox
   :defer t)
+
+(use-package hideshow
+  :hook (prog-mode . hs-minor-mode)
+  :bind (("s-<up>" . #'hs-hide-block)
+	 ("s-<down>" . #'hs-show-block))
+  :delight hs-minor-mode)
+
+(use-package reveal
+  :hook (hs-minor-mode . reveal-mode)
+  :delight)
 
 (provide 'dd-tools)

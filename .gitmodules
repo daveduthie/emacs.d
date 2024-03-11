@@ -58,6 +58,9 @@
 [submodule "embark"]
 	path = lib/embark
 	url = https://github.com/oantolin/embark
+[submodule "envrc"]
+	path = lib/envrc
+	url = https://github.com/purcell/envrc
 [submodule "epkg"]
 	path = lib/epkg
 	url = git@github.com:emacscollective/epkg.git
@@ -88,6 +91,9 @@
 [submodule "ht"]
 	path = lib/ht
 	url = https://github.com/Wilfred/ht.el
+[submodule "inheritenv"]
+	path = lib/inheritenv
+	url = https://github.com/purcell/inheritenv
 [submodule "jinx"]
 	path = lib/jinx
 	url = https://github.com/minad/jinx
@@ -151,6 +157,9 @@
 [submodule "spinner"]
 	path = lib/spinner
 	url = https://github.com/Malabarba/spinner.el
+[submodule "sqlformat"]
+	path = lib/sqlformat
+	url = https://github.com/purcell/sqlformat
 [submodule "sqlite3"]
 	path = lib/sqlite3
 	url = git@github.com:pekingduck/emacs-sqlite3-api.git

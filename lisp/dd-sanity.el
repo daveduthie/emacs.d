@@ -20,8 +20,9 @@
   :defer t
   :delight outline-minor-mode)
 
-(use-package reveal
-  :defer t
-  :delight)
+(use-package emacs
+  :config
+  (put 'downcase-region 'disabled nil)
+  (put 'upcase-region 'disabled nil))
 
 (provide 'dd-sanity)

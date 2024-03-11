@@ -28,4 +28,10 @@
   (add-to-list 'treesit-language-source-alist
                '(graphql "https://github.com/bkegley/tree-sitter-graphql")))
 
+(use-package sqlformat
+  :commands (sqlformat-buffer
+	     sqlformat-region
+	     sqlformat-on-save-mode)
+  :config (setq sqlformat-command 'pgformatter))
+
 (provide 'dd-misc-lang)

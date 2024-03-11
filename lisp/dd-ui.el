@@ -8,7 +8,7 @@
 (setq frame-resize-pixelwise t)
 (setq window-resize-pixelwise t)
 
-(set-face-attribute 'fixed-pitch nil :inherit nil :height 140 :family "Iosevka SS09")
+(set-face-attribute 'default nil :inherit nil :height 130 :family "Iosevka Fixed SS14")
 (set-face-attribute 'variable-pitch nil :inherit 'default :height 1.0 :family "Iosevka Etoile")
 
 (use-package modus-themes
@@ -34,6 +34,10 @@
 (use-package face-remap
   :hook (org-mode . (lambda () (variable-pitch-mode t))))
 
+(use-package hl-line
+  :defer 1
+  :init (global-hl-line-mode t))
+
 ;;; Buffer rules
 
 (setq switch-to-buffer-in-dedicated-window 'pop)
@@ -56,8 +60,9 @@
      (window-parameters . ((no-delete-other-windows . t)))
      (window-width . 0.4))
 
-   '((and (derived-mode . org-mode)
-	  (or "\\*Org Agenda\\*" "[[:digit:]]\\{4\\}-[[:digit:]]\\{2\\}-[[:digit:]]\\{2\\}"))
+   '((or "\\*Org Agenda\\*"
+	 (and (derived-mode . org-mode)
+	      "[[:digit:]]\\{4\\}-[[:digit:]]\\{2\\}-[[:digit:]]\\{2\\}"))
      (display-buffer-in-tab display-buffer-in-direction)
      (tab-name . "🚀 Org"))
    ;;
@@ -75,6 +80,9 @@
 	       "Buffer rules on"
 	     "Buffer rules off")))
 
-(global-set-key (kbd "C-c C-t tur") #'dd/toggle-ui-rules)
+(global-set-key (kbd "C-c C-t ur") #'dd/toggle-ui-rules)
+
+;; (set-frame-parameter nil 'alpha 100)
+;; (add-to-list 'default-frame-alist '(alpha . 100))
 
 (provide 'dd-ui)
