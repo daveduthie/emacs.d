@@ -28,6 +28,12 @@
   (add-to-list 'treesit-language-source-alist
                '(graphql "https://github.com/bkegley/tree-sitter-graphql")))
 
+(use-package rust-ts-mode
+  :mode ("\\.rs\\'")
+  :hook
+  (rust-ts-mode . eglot-ensure)
+  (rust-ts-mode . electric-pair-mode))
+
 (use-package sqlformat
   :commands (sqlformat-buffer
 	     sqlformat-region

@@ -91,12 +91,21 @@
 [submodule "ht"]
 	path = lib/ht
 	url = https://github.com/Wilfred/ht.el
+[submodule "inf-clojure"]
+	path = lib/inf-clojure
+	url = https://github.com/clojure-emacs/inf-clojure
 [submodule "inheritenv"]
 	path = lib/inheritenv
 	url = https://github.com/purcell/inheritenv
+[submodule "jarchive"]
+	path = lib/jarchive
+	url = https://git.sr.ht/~dannyfreeman/jarchive
 [submodule "jinx"]
 	path = lib/jinx
 	url = https://github.com/minad/jinx
+[submodule "literate-calc-mode"]
+	path = lib/literate-calc-mode
+	url = https://github.com/sulami/literate-calc-mode.el
 [submodule "llama"]
 	path = lib/llama
 	url = https://git.sr.ht/~tarsius/llama

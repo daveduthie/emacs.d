@@ -8,8 +8,13 @@
   (setq eglot-sync-connect 0)
   (setq eglot-autoshutdown t)
   (setq eglot-connect-timeout 120)
+  (setq eglot-extend-to-xref t)
   (meow-leader-define-key '(";" . "C-# ;"))
   (meow-leader-define-key '("'" . "C-# '")))
+
+(use-package flymake
+  :bind (("M-n" . #'flymake-goto-next-error)
+	 ("M-p" . #'flymake-goto-prev-error)))
 
 (use-package breadcrumb
   :defer 2

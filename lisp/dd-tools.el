@@ -13,6 +13,12 @@
     (setq vterm-buffer-name (concat "*vterm " (project-name (project-current)) "*"))
     (apply orig-fun args)))
 
+(use-package eshell-mode
+  :defer t
+  :config
+  (add-to-list 'eshell-visual-commands "gh")
+  (add-to-list 'eshell-visual-subcommands (list "bb" "shell")))
+
 (use-package dd-toggl
   :load-path "lisp"
   :commands (dd-toggl-start-from-region dd-toggl-stop-current-task))

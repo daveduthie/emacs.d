@@ -12,6 +12,9 @@
 	     zprint-format-on-save-mode)
   :delight zprint-format-on-save-mode)
 
+(use-package jarchive-mode
+  :hook (clojure-mode . jarchive-mode))
+
 ;; def portal to the dev namespace to allow dereferencing via @dev/portal
 (defun portal.api/open ()
   (interactive)
