@@ -12,14 +12,15 @@
 	     zprint-format-on-save-mode)
   :delight zprint-format-on-save-mode)
 
-(use-package jarchive-mode
-  :hook (clojure-mode . jarchive-mode))
+(use-package jarchive
+  :hook (clojure-mode . jarchive-mode)
+  :delight)
 
-;; def portal to the dev namespace to allow dereferencing via @dev/portal
+;; def portal to the dd-dev namespace to allow dereferencing via @dd-dev/portal
 (defun portal.api/open ()
   (interactive)
   (cider-nrepl-sync-request:eval
-    "(do (ns dev) (def portal ((requiring-resolve 'portal.api/open))) (add-tap (requiring-resolve 'portal.api/submit)))"))
+   "(do (ns dd-dev) (def portal ((requiring-resolve 'portal.api/open))) (add-tap (requiring-resolve 'portal.api/submit)))"))
 
 (defun portal.api/clear ()
   (interactive)
@@ -38,7 +39,7 @@
 	  "((requiring-resolve 'clojure.repl.deps/sync-deps) %s)"
 	  aliases) ))
     (message request)
-    (message (cider-nrepl-sync-request:eval request))))
+    (message (cider-interactive-eval request))))
 
 ;; Eval text register
 
