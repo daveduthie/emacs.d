@@ -47,4 +47,19 @@
   :hook (hs-minor-mode . reveal-mode)
   :delight)
 
+(use-package gptel
+  :config
+  (setq gptel-default-mode 'org-mode)
+  (setq gptel-model "mistral:latest")
+  (setq gptel-backend (gptel-make-ollama "Ollama"
+			:host "localhost:11434"
+			:stream t
+			:models '("mistral:latest"))))
+
+(use-package codeium
+  :defer t
+  :config
+  (setq codeium-mode-line-enable (lambda (api) (not (memq api '(CancelRequest Heartbeat AcceptCompletion)))))
+  (add-to-list 'mode-line-format '(:eval (car-safe codeium-mode-line)) t))
+
 (provide 'dd-tools)

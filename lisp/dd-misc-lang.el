@@ -10,7 +10,7 @@
   :mode ("\\.md\\'" . markdown-mode))
 
 (use-package js
-  :mode ("\\.m?jsx?\\'" . js-mode)
+  :mode ("\\.m?[jt]sx?\\'" . js-mode)
   :hook (js-mode . eglot-ensure))
 
 (use-package yaml-ts-mode

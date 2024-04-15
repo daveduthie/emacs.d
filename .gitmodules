@@ -76,6 +76,9 @@
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
+[submodule "gptel"]
+	path = lib/gptel
+	url = https://github.com/karthink/gptel
 [submodule "graphql-ts-mode"]
 	path = lib/graphql-ts-mode
 	url = https://git.sr.ht/~joram/graphql-ts-mode

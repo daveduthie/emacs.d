@@ -64,33 +64,21 @@
             (setq attempts (1- attempts))))))
     (when attempts (message "Gave up!"))))
 
-(transient-define-suffix springbok-daily--prev ()
-  "Previous"
-  :transient t
+(defun springbok-daily-next ()
   (interactive)
-  (springbok-daily--find-neighbouring-entry (springbok-daily--buffer-date) nil)
-  (transient-setup 'springbok-daily-transient))
+  (springbok-daily--find-neighbouring-entry (springbok-daily--buffer-date) t))
 
-(transient-define-suffix springbok-daily--next ()
-  "Next"
-  :transient t
+(defun springbok-daily-previous ()
   (interactive)
-  (springbok-daily--find-neighbouring-entry (springbok-daily--buffer-date) t)
-  (transient-setup 'springbok-daily-transient))
-
-(transient-define-prefix springbok-daily-transient ()
-  "Prefix that waves at the user persistently."
-  [[("<" "Previous" springbok-daily--prev)]
-   [(">" "Next" springbok-daily--next)]
-   [("q" "Quit" (lambda () (interactive)))]])
+  (springbok-daily--find-neighbouring-entry (springbok-daily--buffer-date) nil))
 
 (define-minor-mode springbok-daily-mode
   "SPRINGBOK daily mode"
   :lighter " SPD"
   :keymap
   (define-keymap
-  "\\" #'springbok-daily-transient
-  ))
+  "M-p" #'springbok-daily-previous
+  "M-n" #'springbok-daily-next))
 
 ;; Hack in TODOs?
 ;; (defun org-dblock-write:todos (params)
