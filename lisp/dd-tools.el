@@ -67,13 +67,9 @@
      ("m" "~/src"                       "src")))
   :config
   (require 'dirvish-fd)
-  (require 'dirvish-side)
   (require 'dirvish-history)
-  (require 'dirvish-emerge)
-  ;; (dirvish-peek-mode) ; Preview files in minibuffer
-  (dirvish-side-follow-mode)	   ; similar to `treemacs-follow-mode'
   (setq dirvish-mode-line-format '(:left (sort symlink) :right (omit yank index)))
-  (setq dirvish-attributes '(all-the-icons file-time file-size collapse subtree-state vc-state git-msg))
+  (setq dirvish-attributes '(all-the-icons file-time file-size collapse subtree-state vc-state))
   (setq delete-by-moving-to-trash t)
   (setq dired-listing-switches "-l --almost-all --human-readable --group-directories-first --no-group")
 
@@ -115,6 +111,9 @@
 	(setf (dv-index dv) (cons key buffer))
 	(run-hook-with-args 'dirvish-find-entry-hook key buffer)
 	buffer)))
+  (setq dired-mouse-drag-files t)
+  (setq mouse-drag-and-drop-region-cross-program t)
+  (setq dirvish-fd-default-dir "~")
 
   :bind	     ; Bind `dirvish|dirvish-side|dirvish-dwim' as you see fit
   (("C-c f" . dirvish-fd)
@@ -124,9 +123,9 @@
    ("y"   . dirvish-yank-menu)
    ("N"   . dirvish-narrow)
    ("^"   . dired-up-directory)
-   ("h"   . dirvish-history-jump)	; remapped `describe-mode'
-   ("s"   . dirvish-quicksort)	; remapped `dired-sort-toggle-or-edit'
-   ("v"   . dirvish-vc-menu)	; remapped `dired-view-file'
+   ("h"   . dirvish-history-jump) ; remapped `describe-mode'
+   ("s"   . dirvish-quicksort)	  ; remapped `dired-sort-toggle-or-edit'
+   ("v"   . dirvish-vc-menu)	  ; remapped `dired-view-file'
    ("TAB" . dirvish-subtree-toggle)
    ("M-f" . dirvish-history-go-forward)
    ("M-b" . dirvish-history-go-backward)
@@ -134,7 +133,6 @@
    ("M-m" . dirvish-mark-menu)
    ("M-t" . dirvish-layout-toggle)
    ("M-s" . dirvish-setup-menu)
-   ("M-e" . dirvish-emerge-menu)
    ("M-j" . dirvish-fd-jump)))
 
 (provide 'dd-tools)
