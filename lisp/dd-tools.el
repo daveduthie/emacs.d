@@ -135,4 +135,9 @@
    ("M-s" . dirvish-setup-menu)
    ("M-j" . dirvish-fd-jump)))
 
+(use-package strokes
+  :defer t
+  :config
+  (define-key global-map [(down-mouse-3)] 'strokes-do-stroke))
+
 (provide 'dd-tools)
