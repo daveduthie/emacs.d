@@ -1,6 +1,0 @@
-# -*- mode: snippet -*-
-# name: TODO
-# key: tdd
-# --
-
-;; TODO(dd): ${}

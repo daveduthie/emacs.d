@@ -1,4 +1,0 @@
-# key: ppp
-# name: cljs-pre-pretty-print
-# --
-[:pre (with-out-str (cljs.pprint/pprint {:$1 $2}))]
