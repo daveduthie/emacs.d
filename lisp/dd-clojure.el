@@ -4,6 +4,8 @@
   :hook (clojure-mode . eglot-ensure)
   :config
   (setq clojure-toplevel-inside-comment-form t)
+  (setq cider-repl-display-help-banner nil)
+  (setq cider-repl-pop-to-buffer-on-connect 'display-only)
   :delight)
 
 (use-package zprint-format

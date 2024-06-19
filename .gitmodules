@@ -46,6 +46,9 @@
 [submodule "delight"]
 	path = lib/delight
 	url = git@github.com:emacsmirror/delight.git
+[submodule "denote"]
+	path = lib/denote
+	url = https://git.sr.ht/~protesilaos/denote
 [submodule "diff-hl"]
 	path = lib/diff-hl
 	url = git@github.com:dgutov/diff-hl.git
@@ -82,6 +85,9 @@
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
+[submodule "go-mode"]
+	path = lib/go-mode
+	url = https://github.com/dominikh/go-mode.el
 [submodule "gptel"]
 	path = lib/gptel
 	url = https://github.com/karthink/gptel

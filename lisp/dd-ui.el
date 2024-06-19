@@ -44,14 +44,14 @@
 
 (defconst dd/display-buffer-rules
   (list
-   ;; Show shells at the bottom of the frame
-   '((or "shell\\*$" "\\*vterm" "\\*cider-repl" "\\*inf-clojure" "\\*scheme\\*" "\\*SQL") display-buffer-in-side-window
+   ;; Show shells & references at the bottom of the frame
+   '((or "shell\\*$" "\\*vterm" "\\*cider-repl" "\\*inf-clojure" "\\*scheme\\*" "\\*SQL" "*grep*" "*xref*" "\\*Embark Export") display-buffer-in-side-window
      (side . bottom)
      (window . root)
      (window-height . 0.3))
 
-   ;; Compilation output, grep, references, etc. go to the right
-   `(,(rx (| "*compilation*" "*grep*" "*xref*"))
+   ;; Compilation output goes to the right
+   `(,(rx (| "*compilation*"))
      display-buffer-in-side-window
      (side . right)
      (slot . 0)

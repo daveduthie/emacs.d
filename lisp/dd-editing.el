@@ -88,7 +88,9 @@
    '("'" . repeat)
    '("<escape>" . ignore))
 
-  (meow-global-mode 1))
+  (meow-global-mode 1)
+
+  (add-to-list 'meow-mode-state-list '(ediff-mode . motion)))
 
 (use-package paredit
   :delight

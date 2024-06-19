@@ -14,7 +14,8 @@
   :hook (js-mode . eglot-ensure))
 
 (use-package yaml-ts-mode
-  :mode ("\\.ya?ml\\'"))
+  :mode ("\\.ya?ml\\'")
+  :hook ((yaml-ts-mode . display-line-numbers-mode)))
 
 (use-package highligh-indent-guides
   :hook ((yaml-ts-mode sh-mode) . highlight-indent-guides-mode))
@@ -39,5 +40,10 @@
 	     sqlformat-region
 	     sqlformat-on-save-mode)
   :config (setq sqlformat-command 'pgformatter))
+
+(use-package go-mode
+  :defer t
+  :hook
+  (go-mode . eglot-ensure))
 
 (provide 'dd-misc-lang)

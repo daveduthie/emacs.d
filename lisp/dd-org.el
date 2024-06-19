@@ -133,9 +133,4 @@
   (global-org-modern-mode 1)
   (setq org-modern-table nil))
 
-(use-package springbok
-  :load-path "lisp/springbok"
-  :commands (springbok-make-quick-note springbok-today springbok-daily)
-  :bind (("<f7>" . #'springbok-today)))
-
 (provide 'dd-org)
