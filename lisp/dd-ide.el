@@ -37,4 +37,17 @@
   (global-corfu-mode)
   (setq tab-always-indent 'complete))
 
+(use-package corfu-history
+  :after (savehist)
+  :load-path "lib/corfu/extensions"
+  :hook (corfu-mode . corfu-history-mode)
+  :config
+  (add-to-list 'savehist-additional-variables 'corfu-history))
+
+(use-package corfu-popupinfo
+  :load-path "lib/corfu/extensions"
+  :hook (corfu-mode . corfu-popupinfo-mode)
+  :config
+  (setq corfu-popupinfo-delay (cons 2.0 1.0)))
+
 (provide 'dd-ide)
