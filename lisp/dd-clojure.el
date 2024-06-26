@@ -6,6 +6,8 @@
   (setq clojure-toplevel-inside-comment-form t)
   (setq cider-repl-display-help-banner nil)
   (setq cider-repl-pop-to-buffer-on-connect 'display-only)
+  (setq cider-eldoc-display-for-symbol-at-point t)
+  (setq cider-eldoc-display-context-dependent-info t)
   :delight)
 
 (use-package zprint-format
@@ -31,6 +33,14 @@
 (defun portal.api/close ()
   (interactive)
   (cider-nrepl-sync-request:eval "(portal.api/close)"))
+
+;; Flow storm
+
+(defun flow-storm.api/local-connect ()
+  (interactive)
+  (cider-nrepl-sync-request:eval
+   "((requiring-resolve 'flow-storm.api/local-connect))"))
+
 
 ;;;; Sync deps - not quite in working order
 
