@@ -133,4 +133,9 @@
   (global-org-modern-mode 1)
   (setq org-modern-table nil))
 
+(use-package ob-clojure
+  :after org
+  :config
+  (setq org-babel-clojure-backend 'cider))
+
 (provide 'dd-org)
