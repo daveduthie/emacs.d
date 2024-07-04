@@ -7,7 +7,7 @@
   (setq cider-repl-display-help-banner nil)
   (setq cider-repl-pop-to-buffer-on-connect 'display-only)
   (setq cider-eldoc-display-for-symbol-at-point t)
-  (setq cider-eldoc-display-context-dependent-info t)
+  (setq cider-eldoc-display-context-dependent-info nil)
   :delight)
 
 (use-package zprint-format
