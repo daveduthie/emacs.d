@@ -15,19 +15,20 @@
   "Load theme, taking current system APPEARANCE into consideration."
   (mapc #'disable-theme custom-enabled-themes)
   (pcase appearance
-    ('light (load-theme 'doom-one-light t))
-    ('dark (load-theme 'doom-rouge t))))
+    ('light (load-theme 'modus-operandi))
+    ('dark (load-theme 'modus-vivendi))))
 
 (use-package modus-themes
   :defer t
   :config (setq modus-themes-mixed-fonts t))
 
 (use-package doom-themes
-  :config (add-hook 'ns-system-appearance-change-functions #'dd/apply-theme)
+  :defer t
   :custom-face (cider-result-overlay-face ((t (:box (:line-width -1 :color "orange"))))))
 
 (use-package emacs
-  :hook (prog-mode . display-line-numbers-mode))
+  :hook (prog-mode . display-line-numbers-mode)
+  :config (add-hook 'ns-system-appearance-change-functions #'dd/apply-theme))
 
 (use-package face-remap
   :hook (org-mode . (lambda () (variable-pitch-mode t))))
