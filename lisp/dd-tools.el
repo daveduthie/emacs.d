@@ -104,4 +104,9 @@
   :config
   (define-key global-map [(down-mouse-3)] 'strokes-do-stroke))
 
+(use-package ediff
+  :defer t
+  :config
+  (setq ediff-window-setup-function 'ediff-setup-windows-plain))
+
 (provide 'dd-tools)
