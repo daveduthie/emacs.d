@@ -4,10 +4,6 @@
   :hook (clojure-mode . eglot-ensure)
   :config
   (setq clojure-toplevel-inside-comment-form t)
-  (setq cider-repl-display-help-banner nil)
-  (setq cider-repl-pop-to-buffer-on-connect 'display-only)
-  (setq cider-eldoc-display-for-symbol-at-point t)
-  (setq cider-eldoc-display-context-dependent-info nil)
   :delight)
 
 (use-package zprint-format
@@ -76,6 +72,10 @@
   (setq markdown-indent-on-enter nil)
   ;; Revisit?
   (setq cider-xref-fn-depth 90)
+  (setq cider-repl-display-help-banner nil)
+  (setq cider-repl-pop-to-buffer-on-connect 'display-only)
+  (setq cider-eldoc-display-for-symbol-at-point t)
+  (setq cider-eldoc-display-context-dependent-info nil)
   :delight)
 
 (provide 'dd-clojure)
