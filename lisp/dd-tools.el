@@ -97,6 +97,7 @@
 (use-package dirvish-emerge :after dirvish)
 (use-package dirvish-fd :after dirvish)
 (use-package dirvish-history :after dirvish)
+(use-package dirvish-narrow :after dirvish)
 
 (use-package strokes
   :defer t
