@@ -2,7 +2,9 @@
 
 (use-package tab-bar
   :bind (("M-[" . #'tab-bar-switch-to-prev-tab)
-	 ("M-]" . #'tab-bar-switch-to-next-tab))
+	 ("M-]" . #'tab-bar-switch-to-next-tab)
+	 ("M-t" . #'tab-new)
+	 ("M-W" . #'tab-close))
   :config
   (setq tab-bar-tab-name-function
         (lambda ()

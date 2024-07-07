@@ -34,6 +34,7 @@
   :hook (org-mode . (lambda () (variable-pitch-mode t))))
 
 (use-package hl-line
+  :disabled t
   :defer 1
   :init (global-hl-line-mode t))
 
@@ -83,5 +84,17 @@
 
 ;; (set-frame-parameter nil 'alpha 100)
 ;; (add-to-list 'default-frame-alist '(alpha . 100))
+
+;; add visual pulse when changing focus, like beacon but built-in
+;; from from https://karthinks.com/software/batteries-included-with-emacs/
+(defun pulse-line (&rest _)
+  "Pulse the current line."
+  (pulse-momentary-highlight-one-line (point)))
+
+(dolist (command '(scroll-up-command
+                   scroll-down-command
+                   recenter-top-bottom
+                   other-window))
+  (advice-add command :after #'pulse-line))
 
 (provide 'dd-ui)

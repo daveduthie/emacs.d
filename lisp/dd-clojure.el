@@ -6,6 +6,23 @@
   (setq clojure-toplevel-inside-comment-form t)
   :delight)
 
+(defun dd/fix-clojure-ts-mode-indentation ()
+  (setq-local lisp-indent-function #'clojure-indent-function))
+
+;TODO(dd) dir-locals declared for clojure(script) should also activate in their ts counterparts
+(use-package clojure-ts-mode
+  :disabled t
+  :mode ("\\.clj(c|s)?\\'" . clojure-ts-mode)
+  :init
+  (add-to-list 'major-mode-remap-alist '(clojure-mode . clojure-ts-mode))
+  (add-to-list 'major-mode-remap-alist '(clojurescript-mode . clojure-ts-clojurescript-mode))
+  (add-to-list 'major-mode-remap-alist '(clojurec-mode . clojure-ts-clojurec-mode))
+  :hook ((clojure-ts-mode . dd/fix-clojure-ts-mode-indentation)
+	 (clojure-ts-mode . eglot-ensure))
+  :config
+  (setq clojure-ts-indent-style 'fixed)
+  (setq clojure-ts-toplevel-inside-comment-form t))
+
 (use-package zprint-format
   :commands (zprint-format-buffer
 	     zprint-format-region
