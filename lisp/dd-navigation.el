@@ -49,7 +49,8 @@
   :bind (("C-c i". #'consult-imenu)
 	 ("C-x p C-b" . #'consult-project-buffer)
 	 ("C-x b" . #'consult-buffer)
-	 ("C-x p x" . #'consult-ripgrep)))
+	 ("C-x p x" . #'consult-ripgrep)
+	 ("C-s" . #'consult-line)))
 
 (use-package recentf
   :defer 1
