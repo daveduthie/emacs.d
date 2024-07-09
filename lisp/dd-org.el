@@ -96,27 +96,11 @@
 	 'org-meta-line
 	 'org-document-info-keyword))
 
-  (setq org-src-block-faces
-	'(("emacs-lisp" modus-themes-nuanced-magenta)
-	  ("elisp" modus-themes-nuanced-magenta)
-	  ("clojure" modus-themes-nuanced-magenta)
-	  ("clojurescript" modus-themes-nuanced-magenta)
-	  ("c" modus-themes-nuanced-blue)
-	  ("c++" modus-themes-nuanced-blue)
-	  ("sh" modus-themes-nuanced-green)
-	  ("shell" modus-themes-nuanced-green)
-	  ("html" modus-themes-nuanced-yellow)
-	  ("xml" modus-themes-nuanced-yellow)
-	  ("css" modus-themes-nuanced-red)
-	  ("scss" modus-themes-nuanced-red)
-	  ("python" modus-themes-nuanced-green)
-	  ("ipython" modus-themes-nuanced-magenta)
-	  ("r" modus-themes-nuanced-cyan)
-	  ("js" modus-themes-nuanced-cyan)
-	  ("yaml" modus-themes-nuanced-cyan)
-	  ("conf" modus-themes-nuanced-cyan)
-	  ("docker" modus-themes-nuanced-cyan)
-	  ("dockerfile" modus-themes-nuanced-cyan))))
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . nil)
+     (eshell . t)
+     (shell . t))))
 
 (use-package org-tempo
   :after org)
