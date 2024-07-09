@@ -50,11 +50,12 @@
 (use-package gptel
   :config
   (setq gptel-default-mode 'org-mode)
-  (setq gptel-model "llama3:latest")
+  (setq gptel-model "gemma2:latest")
   (setq gptel-backend (gptel-make-ollama "Ollama"
 			:host "localhost:11434"
 			:stream t
-			:models '("llama3:latest"))))
+			:models '("llama3:latest"
+				  "gemma2:latest"))))
 
 (use-package dirvish
   :load-path "lib/dirvish/extensions"
