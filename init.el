@@ -20,3 +20,4 @@
 (require 'dd-snippets)
 (require 'dd-mac)
 (require 'dd-denote)
+(require 'dd-llms)

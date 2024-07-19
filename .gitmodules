@@ -64,6 +64,12 @@
 [submodule "doom-themes"]
 	path = lib/doom-themes
 	url = https://github.com/doomemacs/themes
+[submodule "eglot-tempel"]
+	path = lib/eglot-tempel
+	url = https://github.com/fejfighter/eglot-tempel
+[submodule "ellama"]
+	path = lib/ellama
+	url = https://github.com/s-kostyaev/ellama
 [submodule "emacsql"]
 	path = lib/emacsql
 	url = git@github.com:magit/emacsql.git
@@ -109,6 +115,9 @@
 [submodule "ht"]
 	path = lib/ht
 	url = https://github.com/Wilfred/ht.el
+[submodule "ibuffer-project"]
+	path = lib/ibuffer-project
+	url = https://github.com/muffinmad/emacs-ibuffer-project
 [submodule "inf-clojure"]
 	path = lib/inf-clojure
 	url = https://github.com/clojure-emacs/inf-clojure
@@ -127,6 +136,9 @@
 [submodule "llama"]
 	path = lib/llama
 	url = https://git.sr.ht/~tarsius/llama
+[submodule "llm"]
+	path = lib/llm
+	url = https://github.com/ahyatt/llm
 [submodule "lua-ts-mode"]
 	path = lib/lua-ts-mode
 	url = https://git.sr.ht/~johnmuhl/lua-ts-mode
@@ -145,6 +157,9 @@
 [submodule "meow"]
 	path = lib/meow
 	url = https://github.com/meow-edit/meow
+[submodule "ns-auto-titlebar"]
+	path = lib/ns-auto-titlebar
+	url = https://github.com/purcell/ns-auto-titlebar
 [submodule "orderless"]
 	path = lib/orderless
 	url = https://github.com/oantolin/orderless
@@ -166,6 +181,9 @@
 [submodule "pcre2el"]
 	path = lib/pcre2el
 	url = https://github.com/joddie/pcre2el
+[submodule "plz"]
+	path = lib/plz
+	url = https://github.com/alphapapa/plz.el
 [submodule "prettier-js"]
 	path = lib/prettier-js
 	url = https://github.com/prettier/prettier-emacs

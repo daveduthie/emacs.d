@@ -31,7 +31,8 @@
   :config (add-hook 'ns-system-appearance-change-functions #'dd/apply-theme))
 
 (use-package face-remap
-  :hook (org-mode . (lambda () (variable-pitch-mode t))))
+  :hook (org-mode . (lambda () (variable-pitch-mode t)))
+  :delight buffer-face-mode)
 
 (use-package hl-line
   :disabled t
@@ -62,7 +63,7 @@
 
    '((or "\\*Org Agenda\\*"
 	 (and (derived-mode . org-mode)
-	      "[[:digit:]]\\{4\\}-[[:digit:]]\\{2\\}-[[:digit:]]\\{2\\}"))
+	      "__journal.org"))
      (display-buffer-in-tab display-buffer-in-direction)
      (tab-name . "🚀 Org"))
    ;;

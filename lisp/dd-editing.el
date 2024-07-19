@@ -88,7 +88,10 @@
    '("'" . repeat)
    '("<escape>" . ignore))
 
-  (meow-global-mode 1))
+  (meow-global-mode 1)
+
+  ;; Fix magit-ediff-dwim
+  (add-hook 'ediff-mode-hook #'meow-motion-mode))
 
 (use-package paredit
   :delight

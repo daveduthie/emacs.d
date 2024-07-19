@@ -7,9 +7,13 @@
 
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
-  :defer 1
+  :defer 2
   :config
   (setq exec-path-from-shell-arguments nil)
   (exec-path-from-shell-initialize))
+
+(use-package ns-auto-titlebar
+  :if (memq window-system '(mac ns))
+  :config (ns-auto-titlebar-mode))
 
 (provide 'dd-mac)

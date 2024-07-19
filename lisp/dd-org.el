@@ -7,6 +7,7 @@
 
 (use-package org
   :defer t
+  :delight
 
   :bind (("<f8>" . dd/org-agenda-day)
 	 :map org-mode-map
@@ -108,8 +109,9 @@
 (use-package ox-md
   :after org)
 
-(use-package org-indent-mode
-  :hook org-mode)
+(use-package org-indent
+  :hook org-mode
+  :delight)
 
 (use-package org-modern
   :after org

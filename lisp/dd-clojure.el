@@ -71,12 +71,13 @@
 
 (defun dd/cider-eval-register ()
   (interactive)
-  (let ((register-text (with-temp-buffer
-			 (if (fboundp 'consult-register)
-			     (consult-register)
-			   (insert-register))
-			 (buffer-string))))
-    (message (cider-nrepl-sync-request:eval register-text))))
+  (letrec ((register-text (with-temp-buffer
+			    (if (fboundp 'consult-register)
+				(consult-register)
+			      (insert-register))
+			    (buffer-string)))
+	   (resp (cider-nrepl-sync-request:eval register-text)))
+    (message (ansi-color-apply (nrepl-dict-get resp "out")))))
 
 (use-package cider
   :hook (clojure-mode . cider-mode)

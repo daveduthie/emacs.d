@@ -35,4 +35,8 @@
 ;; The package is young and doesn't have comprehensive coverage.
 ;; (use-package tempel-collection)
 
+(use-package eglot-tempel
+  :after (eglot tempel)
+  :hook (eglot . eglot-tempel-mode))
+
 (provide 'dd-snippets)

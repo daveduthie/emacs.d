@@ -9,14 +9,16 @@
   (setq eglot-autoshutdown t)
   (setq eglot-connect-timeout 120)
   (setq eglot-extend-to-xref t)
-  (meow-leader-define-key '(";" . "C-# ;"))
-  (meow-leader-define-key '("'" . "C-# '")))
+  (with-eval-after-load 'meow
+    (meow-leader-define-key '(";" . "C-# ;"))
+    (meow-leader-define-key '("'" . "C-# '"))))
 
 (use-package flymake
   :bind (("M-n" . #'flymake-goto-next-error)
 	 ("M-p" . #'flymake-goto-prev-error)))
 
 (use-package breadcrumb
+  :disabled t
   :defer 2
   :config (breadcrumb-mode))
 

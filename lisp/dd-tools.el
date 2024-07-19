@@ -47,16 +47,6 @@
   :hook (hs-minor-mode . reveal-mode)
   :delight)
 
-(use-package gptel
-  :config
-  (setq gptel-default-mode 'org-mode)
-  (setq gptel-model "gemma2:latest")
-  (setq gptel-backend (gptel-make-ollama "Ollama"
-			:host "localhost:11434"
-			:stream t
-			:models '("llama3:latest"
-				  "gemma2:latest"))))
-
 (use-package dirvish
   :load-path "lib/dirvish/extensions"
   :init
@@ -99,6 +89,7 @@
 (use-package dirvish-fd :after dirvish)
 (use-package dirvish-history :after dirvish)
 (use-package dirvish-narrow :after dirvish)
+(use-package dirvish-ls :after dirvish)
 
 (use-package strokes
   :defer t
