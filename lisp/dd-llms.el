@@ -1,4 +1,4 @@
-(defun dd-toggl--parse-json-resp ()
+(defun dd-llms--parse-json-resp ()
   (goto-char url-http-end-of-headers)
   (let ((json-object-type 'plist)
 	(json-key-type 'symbol)
@@ -11,7 +11,7 @@
   (let ((url-request-method "GET"))
     (url-retrieve "http://127.0.0.1:11434/api/tags"
 		  (lambda (&rest more)
-		    (letrec ((response (dd-toggl--parse-json-resp))
+		    (letrec ((response (dd-llms--parse-json-resp))
 			     (model-names (mapcar (lambda (x) (plist-get x 'name))
 						  (plist-get response 'models))))
 		      (setq gptel-backend (gptel-make-ollama "Ollama"
