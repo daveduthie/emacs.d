@@ -97,6 +97,22 @@
   :delight
   :hook (prog-mode . enable-paredit-mode))
 
+(use-package puni
+  :disabled t
+  :delight
+  :bind (("M-r" . #'puni-raise)
+	 ("M-S" . #'puni-splice)
+	 ("M-(" . #'puni-wrap-round)
+	 ("C-<right>" . #'puni-slurp-forward)
+	 ("C-<left>" . #'puni-barf-forward)
+	 ("C-M-<right>" . #'puni-barf-backward)
+	 ("C-M-<left>" . #'puni-slurp-backward))
+  :config (puni-global-mode))
+
+(use-package elec-pair
+  :disabled t
+  :config (electric-pair-mode t))
+
 (use-package autorevert
   :delight arev
   :init (global-auto-revert-mode 1))
