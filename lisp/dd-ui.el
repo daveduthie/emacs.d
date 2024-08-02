@@ -8,6 +8,8 @@
 (setq frame-resize-pixelwise t)
 (setq window-resize-pixelwise t)
 
+(setq-default fill-column 80)
+
 (set-face-attribute 'default nil :inherit nil :height 130 :family "Iosevka Fixed SS14")
 (set-face-attribute 'variable-pitch nil :inherit 'default :height 1.0 :family "Iosevka Etoile")
 
@@ -48,24 +50,34 @@
 (defconst dd/display-buffer-rules
   (list
    ;; Show shells & references at the bottom of the frame
-   '((or "shell\\*$" "\\*vterm" "\\*cider-repl" "\\*inf-clojure" "\\*scheme\\*" "\\*SQL" "*grep*" "*xref*" "\\*Embark Export") display-buffer-in-side-window
+   `(,(rx (or "*Embark Export"
+	      "*SQL"
+	      "*cider-repl"
+	      "*grep"
+	      "*inf-clojure"
+	      "*scheme*"
+	      "*vterm"
+	      "*xref"
+	      "shell*"))
+     display-buffer-in-side-window
      (side . bottom)
      (window . root)
      (window-height . 0.3))
 
    ;; Compilation output goes to the right
-   `(,(rx (| "*compilation*"))
+   `(,(rx "*compilation*")
      display-buffer-in-side-window
      (side . right)
      (slot . 0)
      (window-parameters . ((no-delete-other-windows . t)))
      (window-width . 0.4))
 
-   '((or "\\*Org Agenda\\*"
+   `((or ,(rx "*Org Agenda*")
 	 (and (derived-mode . org-mode)
-	      "__journal.org"))
-     (display-buffer-in-tab display-buffer-in-direction)
-     (tab-name . "🚀 Org"))
+	      "_journal.org"))
+     (display-buffer-in-tab
+      display-buffer-in-direction)
+     (tab-name . "Org 🏠"))
    ;;
    ))
 
@@ -80,8 +92,6 @@
   (message (if display-buffer-alist
 	       "Buffer rules on"
 	     "Buffer rules off")))
-
-(global-set-key (kbd "C-c C-t ur") #'dd/toggle-ui-rules)
 
 ;; (set-frame-parameter nil 'alpha 100)
 ;; (add-to-list 'default-frame-alist '(alpha . 100))
