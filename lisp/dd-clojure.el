@@ -6,9 +6,6 @@
   (setq clojure-toplevel-inside-comment-form t)
   :delight)
 
-(defun dd/fix-clojure-ts-mode-indentation ()
-  (setq-local lisp-indent-function #'clojure-indent-function))
-
 ;; Has some issues with indentation, and seems to break paredit somehow.
 (use-package clojure-ts-mode
   :disabled t
@@ -18,6 +15,8 @@
   (add-to-list 'major-mode-remap-alist '(clojure-mode . clojure-ts-mode))
   (add-to-list 'major-mode-remap-alist '(clojurescript-mode . clojure-ts-clojurescript-mode))
   (add-to-list 'major-mode-remap-alist '(clojurec-mode . clojure-ts-clojurec-mode))
+  (defun dd/fix-clojure-ts-mode-indentation ()
+    (setq-local lisp-indent-function #'clojure-indent-function))
   :hook ((clojure-ts-mode . dd/fix-clojure-ts-mode-indentation)
 	 (clojure-ts-mode . eglot-ensure))
   :config
@@ -88,6 +87,8 @@
 	      ;; TODO: bind dd/cider-eval-register
 	      )
   :config
+  (define-advice cider--ssh-hosts
+      (:around (orig-fn &rest args) dd-disable-cider-ssh-host-retrieval nil))
   (setq markdown-indent-on-enter nil)
   ;; Revisit?
   (setq cider-xref-fn-depth 90)
