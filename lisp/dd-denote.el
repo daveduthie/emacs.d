@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (use-package denote
   :config
   (setq denote-directory (expand-file-name "~/Documents/org/zk"))

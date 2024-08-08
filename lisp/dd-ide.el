@@ -52,4 +52,7 @@
   :config
   (setq corfu-popupinfo-delay (cons 2.0 1.0)))
 
+(use-package hippie-exp
+  :bind ("C-M-/" . #'hippie-expand))
+
 (provide 'dd-ide)

@@ -10,5 +10,4 @@
 
 (global-set-key (kbd "C-c C-t") (cons "Toggles" dd/toggles))
 
-
 (provide 'dd-toggles)

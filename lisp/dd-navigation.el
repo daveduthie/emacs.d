@@ -20,6 +20,26 @@
   :after vertico
   :config (vertico-mouse-mode))
 
+(use-package vertico-grid
+  :load-path "lib/vertico/extensions"
+  :after vertico)
+
+(use-package vertico-buffer
+  :load-path "lib/vertico/extensions"
+  :after vertico)
+
+(use-package vertico-multiform
+  :load-path "lib/vertico/extensions"
+  :after vertico
+  :config
+  (vertico-multiform-mode)
+  (setq vertico-multiform-commands
+	'((consult-ripgrep buffer)
+	  (consult-buffer grid)))
+  (setq vertico-multiform-categories
+	'(("buffer" grid)
+	  ("file" grid))))
+
 (use-package orderless
   :init
   (setq completion-styles '(orderless basic)))

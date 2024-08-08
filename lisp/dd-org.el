@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 ;;; Org mode tweaks
 
-(defun dd/org-agenda-day ()
+(defun dd/org-agenda-default ()
   (interactive)
   (org-agenda nil "d"))
 
@@ -9,9 +9,12 @@
   :defer t
   :delight
 
-  :bind (("<f8>" . dd/org-agenda-day)
+  :bind (("C-c a" . #'dd/org-agenda-default)
+	 ("C-c c" . #'org-capture)
 	 :map org-mode-map
-	 ("<tab>" . org-cycle))
+	 ("<tab>" . org-cycle)
+	 ("M-." . #'org-open-at-point)
+	 ("M-," . #'org-mark-ring-goto))
 
   :hook (org-mode . (lambda () (setq-local line-spacing 0.1)))
 
@@ -23,24 +26,24 @@
 
   (setq org-todo-keywords
 	'((sequence
-	   "PROJ(p)"
-	   "HOLD(h)" "TODO(t)" "STRT(s)" "WAIT(w)"
+	   "TODO(t)" "STRT(s)" "WAIT(w)" "HOLD(h)" "PROJ(p)"
 	   "|" "DONE(d)" "KILL(k)")))
+
+  (setq org-log-done 'time)
 
   ;; Refile tweak
   (setq org-refile-allow-creating-parent-nodes 'confirm)
 
   (setq org-agenda-custom-commands
-	'(("d" "Day"
+	'(("d" "Default"
 	   (;; One block with a standard agenda view
-	    (agenda "" ((org-agenda-span 'day)
+	    (agenda "" ((org-agenda-span 7)
 			(org-agenda-start-day "-0d")
 			(org-agenda-start-on-weekday nil)))
 	    ;; My top priority for the day
 	    (tags-todo "+PRIORITY=\"A\""
 		       ((org-agenda-overriding-header "Top priority")
-			(org-agenda-skip-function
-			 '(org-agenda-skip-if nil '(scheduled deadline)))))
+			(org-agenda-skip-function '(org-agenda-skip-if nil '(scheduled deadline)))))
 	    ;; Unprocessed inbox items
 	    (tags "inbox"
 		  ((org-agenda-overriding-header "Inbox")
@@ -61,23 +64,18 @@
 	   nil)))
 
   (setq org-capture-templates
-	'(("i" "Inbox" entry (file "inbox.org"))
-	  ("m" "Meeting" entry (file+olp+datetree "notes.org")
-	   "* [M] %?"
-	   :tree-type month
-	   :clock-in t
-	   :clock-resume t)
-	  ("s" "Story" entry (file+olp+datetree "todo.org")
-	   "* TODO [I] %^{ISSUE_NUMBER|PL-}
-  SCHEDULED: %T
-  https://lifecheq.youtrack.cloud/issue//%\\1
-  %?"
-	   :tree-type month)
-	  ("r" "Review" entry (file+olp+datetree "todo.org")
-	   "* TODO [R] %?
-  SCHEDULED: %T"
+	`(("i" "Inbox" entry (file "inbox.org") "* TODO %?")
+	  ("t" "Task" entry (file+olp+datetree "todo.org") "* TODO %?\nSCHEDULED: %T"
 	   :tree-type month)
 	  ("c" "Current clock" entry (clock))))
+
+  (setq org-agenda-hide-tags-regexp ".")
+
+  (setq org-agenda-prefix-format
+	'((agenda . " %i %?-12t% s")
+          (todo   . " %i %-12:c")
+          (tags   . " %i %-12:c")
+          (search . " %i %-12:c")))
 
   (setq org-refile-targets
 	'((nil :maxlevel . 3)
@@ -85,7 +83,7 @@
 	org-refile-use-outline-path 'file
 	org-outline-path-complete-in-steps nil)
 
-  ;;; Make org mode easier on the eyes.
+;;; Make org mode easier on the eyes.
   (mapc
    (lambda (face) (set-face-attribute face nil :inherit 'fixed-pitch))
    (list 'org-code
@@ -113,6 +111,9 @@
   :hook org-mode
   :delight)
 
+(use-package org-habit
+  :after org)
+
 (use-package org-modern
   :after org
   :config
@@ -123,5 +124,21 @@
   :after org
   :config
   (setq org-babel-clojure-backend 'cider))
+
+;; https://emacs.stackexchange.com/a/37974
+(defun dd/org-read-datetree-date (d)
+  "Parse a time string D and return a date to pass to the datetree functions."
+  (let ((dtmp (nthcdr 3 (parse-time-string d))))
+    (list (cadr dtmp) (car dtmp) (caddr dtmp))))
+
+(defun dd/org-refile-to-archive-datetree ()
+  "Refile an entry to a datetree under an archive."
+  (interactive)
+  (require 'org-datetree)
+  (let ((dest (save-excursion
+                (org-datetree-find-date-create
+                 (dd/org-read-datetree-date (org-read-date t nil)))
+                (point))))
+    (org-refile nil nil (list nil (buffer-file-name) nil dest))))
 
 (provide 'dd-org)

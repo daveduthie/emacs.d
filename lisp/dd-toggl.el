@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; -*-
 
-(fset 'epg-wait-for-status 'ignore) ; probably a bad idea!
+;; (fset 'epg-wait-for-status 'ignore) ; probably a bad idea!
 (setq epa-pinentry-mode 'loopback)
 (setq dd-toggl--toggl-workspace-id 7868546)
 
@@ -8,7 +8,8 @@
   (auth-info-password (car (auth-source-search :host "api.track.toggl.com"))))
 
 (defun dd-toggl--get-auth ()
-  (format "Basic %s" (base64-encode-string (concat (dd-toggl--password) ":api_token"))))
+  (format "Basic %s"
+	  (base64-encode-string (concat (dd-toggl--password) ":api_token"))))
 
 (setq dd-toggl--toggl-base-url "https://api.track.toggl.com/api/v9")
 
@@ -45,9 +46,10 @@
    :callback (lambda (resp) (message "started: %s" (plist-get resp :description)))))
 
 (defun dd-toggl--get-current-task ()
+  (interactive)
   (let ((url-request-method "GET")
         (url-request-extra-headers `(("Authorization" . ,(dd-toggl--get-auth)))))
-    (with-temp-buffer ;TODO(dd) use dd-toggl--request?
+    (with-temp-buffer			;TODO(dd) use dd-toggl--request?
       (url-insert-file-contents
        (format "%s/me/time_entries/current" dd-toggl--toggl-base-url))
       (json-parse-buffer :object-type 'plist))))
