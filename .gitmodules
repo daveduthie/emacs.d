@@ -184,6 +184,9 @@
 [submodule "prettier-js"]
 	path = lib/prettier-js
 	url = https://github.com/prettier/prettier-emacs
+[submodule "puni"]
+	path = lib/puni
+	url = https://github.com/AmaiKinono/puni
 [submodule "queue"]
 	path = lib/queue
 	url = git@github.com:emacsmirror/queue.git
