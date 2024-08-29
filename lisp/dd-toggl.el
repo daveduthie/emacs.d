@@ -5,7 +5,7 @@
 (setq dd-toggl--toggl-workspace-id 7868546)
 
 (defun dd-toggl--password ()
-  (auth-info-password (car (auth-source-search :host "api.track.toggl.com"))))
+  (auth-info-password (car (auth-source-search :host "api.track.toggl.com" :max 1))))
 
 (defun dd-toggl--get-auth ()
   (format "Basic %s"
@@ -45,27 +45,26 @@
 	      ("created_with" . "emacs(dd-toggl)"))
    :callback (lambda (resp) (message "started: %s" (plist-get resp :description)))))
 
-(defun dd-toggl--get-current-task ()
+(defun dd-toggl-get-current-task (&optional cb)
   (interactive)
-  (let ((url-request-method "GET")
-        (url-request-extra-headers `(("Authorization" . ,(dd-toggl--get-auth)))))
-    (with-temp-buffer			;TODO(dd) use dd-toggl--request?
-      (url-insert-file-contents
-       (format "%s/me/time_entries/current" dd-toggl--toggl-base-url))
-      (json-parse-buffer :object-type 'plist))))
+  (dd-toggl--request
+   :method "GET"
+   :path "/me/time_entries/current"
+   :callback (lambda (resp)
+	       (message "Running task: %s" (plist-get resp :description))
+	       (when cb (cb resp)))))
 
 (defun dd-toggl-stop-current-task ()
   (interactive)
-  (let ((task (dd-toggl--get-current-task))
-	(url-request-method "PATCH")
-	(url-request-extra-headers `(("Authorization" . ,(dd-toggl--get-auth)))))
-    (url-retrieve ;TODO(dd) use dd-toggl--request?
-     (format "%s/workspaces/%s/time_entries/%s/stop"
-	     dd-toggl--toggl-base-url
+  (dd-toggl-get-current-task
+   (lambda (task)
+     (dd-toggl--request
+      :method "PATCH"
+      :path (format "/workspaces/%s/time_entries/%s/stop"
 	     dd-toggl--toggl-workspace-id
 	     (plist-get task :id))
-     (lambda (&rest _args)
-       (message "stopped: %s" (plist-get (dd-toggl--parse-json-resp) :description))))))
+      :callback (lambda (response)
+		  (message "stopped: %s" (plist-get response :description)))))))
 
 (defun dd-toggl-start-from-region ()
   "Starts a task with description taken from active region"
