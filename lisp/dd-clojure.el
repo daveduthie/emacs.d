@@ -98,4 +98,18 @@
   (setq cider-eldoc-display-context-dependent-info nil)
   :delight)
 
+(use-package kaocha-runner
+  :after (cider-mode)
+  :bind (:map clojure-mode-map
+	      ("C-c k t" . kaocha-runner-run-test-at-point)
+              ("C-c k r" . kaocha-runner-run-tests)
+              ("C-c k a" . kaocha-runner-run-all-tests)
+              ("C-c k w" . kaocha-runner-show-warnings)
+              ("C-c k h" . kaocha-runner-hide-windows)))
+
+(defun dd/clj-project-scratch ()
+  (interactive)
+  (find-file (expand-file-name (format-time-string "dev/dd/scratch_%Y_%m_%d.cljc")
+			       (vc-root-dir))))
+
 (provide 'dd-clojure)
