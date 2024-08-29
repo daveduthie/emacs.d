@@ -94,11 +94,11 @@
   (add-hook 'ediff-mode-hook #'meow-motion-mode))
 
 (use-package paredit
-  :disabled t
   :delight
   :hook (prog-mode . enable-paredit-mode))
 
 (use-package puni
+  :disabled t
   :delight
   :bind (("M-r" . #'puni-raise)
 	 ("M-S" . #'puni-splice)
@@ -110,6 +110,7 @@
   :config (puni-global-mode))
 
 (use-package elec-pair
+  :disabled t
   :config (electric-pair-mode t))
 
 (use-package autorevert
