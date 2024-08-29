@@ -65,8 +65,12 @@
 (use-package winner
   :init (winner-mode))
 
-(use-package window
-  :bind (("M-o" . #'other-window)))
+;; (use-package window
+;;   :bind (("M-o" . #'other-window)))
+
+(use-package ace-window
+  :config (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  :bind (("M-o" . #'ace-window)))
 
 (use-package dired
   :defer t
