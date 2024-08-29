@@ -34,7 +34,7 @@
   :config
   (vertico-multiform-mode)
   (setq vertico-multiform-commands
-	'((consult-ripgrep buffer)
+	'(;(consult-ripgrep buffer)
 	  (consult-buffer grid)))
   (setq vertico-multiform-categories
 	'(("buffer" grid)
