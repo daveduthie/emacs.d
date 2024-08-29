@@ -1,6 +1,9 @@
 [include]
 	path = .gitremotes
 	path = .borgconfig
+[submodule "ace-window"]
+	path = lib/ace-window
+	url = https://github.com/abo-abo/ace-window
 [submodule "all-the-icons"]
 	path = lib/all-the-icons
 	url = https://github.com/domtronn/all-the-icons.el
@@ -10,6 +13,9 @@
 [submodule "auto-compile"]
 	path = lib/auto-compile
 	url = git@github.com:emacscollective/auto-compile.git
+[submodule "avy"]
+	path = lib/avy
+	url = https://github.com/abo-abo/avy
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
@@ -130,6 +136,12 @@
 [submodule "jinx"]
 	path = lib/jinx
 	url = https://github.com/minad/jinx
+[submodule "kaocha-runner"]
+	path = lib/kaocha-runner
+	url = https://github.com/magnars/kaocha-runner.el
+[submodule "know-your-http-well"]
+	path = lib/know-your-http-well
+	url = https://github.com/for-GET/know-your-http-well
 [submodule "literate-calc-mode"]
 	path = lib/literate-calc-mode
 	url = https://github.com/sulami/literate-calc-mode.el
@@ -181,6 +193,9 @@
 [submodule "plz"]
 	path = lib/plz
 	url = https://github.com/alphapapa/plz.el
+[submodule "posframe"]
+	path = lib/posframe
+	url = https://github.com/tumashu/posframe
 [submodule "prettier-js"]
 	path = lib/prettier-js
 	url = https://github.com/prettier/prettier-emacs
