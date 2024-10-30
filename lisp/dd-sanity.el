@@ -20,6 +20,9 @@
   :defer t
   :delight outline-minor-mode)
 
+(use-package repeat
+  :config (repeat-mode))
+
 (use-package emacs
   :config
   (put 'downcase-region 'disabled nil)

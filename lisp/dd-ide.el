@@ -55,4 +55,17 @@
 (use-package hippie-exp
   :bind ("C-M-/" . #'hippie-expand))
 
+
+(use-package compile
+  :defer t
+  :config
+  ;; Stolen from (http://endlessparentheses.com/ansi-colors-in-the-compilation-buffer-output.html)
+  (defun dd/colorize-compilation ()
+    "Colorize from `compilation-filter-start' to `point'."
+    (require 'ansi-color)
+    (let ((inhibit-read-only t))
+      (ansi-color-apply-on-region
+       compilation-filter-start (point))))
+  (add-hook 'compilation-filter-hook #'dd/colorize-compilation))
+
 (provide 'dd-ide)

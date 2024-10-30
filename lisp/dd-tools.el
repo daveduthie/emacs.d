@@ -49,14 +49,15 @@
 
 (use-package dirvish
   :load-path "lib/dirvish/extensions"
-  :init
-  (dirvish-override-dired-mode)
+  :defer 3
   :custom
-  (dirvish-quick-access-entries ; It's a custom option, `setq' won't work
+  (dirvish-quick-access-entries	       ; It's a custom option, `setq' won't work
    '(("h" "~/"                          "Home")
      ("d" "~/Downloads/"                "Downloads")
      ("m" "~/src"                       "src")))
   :config
+  ;; (setq insert-directory-program (executable-find "gls"))
+  (dirvish-override-dired-mode)
   (setq dirvish-mode-line-format '(:left (sort symlink) :right (omit yank index)))
   (setq dirvish-attributes '(all-the-icons file-time file-size collapse subtree-state vc-state))
   (setq delete-by-moving-to-trash t)

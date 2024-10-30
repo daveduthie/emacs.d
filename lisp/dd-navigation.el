@@ -84,7 +84,7 @@
 	 ("C-x p b" . #'consult-project-buffer)
 	 ("C-x b" . #'consult-buffer)
 	 ("C-x p x" . #'consult-ripgrep)
-	 ("C-s" . #'consult-line)
+	 ("C-S-s" . #'consult-line)
 	 ("C-x r b" . #'consult-bookmark)))
 
 (use-package recentf

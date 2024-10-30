@@ -10,7 +10,7 @@
 
 (setq-default fill-column 80)
 
-(set-face-attribute 'default nil :inherit nil :height 130 :family "Iosevka Fixed SS14")
+(set-face-attribute 'default nil :inherit nil :height 130 :family "Iosevka SS14")
 (set-face-attribute 'variable-pitch nil :inherit 'default :height 1.0 :family "Iosevka Etoile")
 
 (defun dd/apply-theme (appearance)
@@ -64,10 +64,10 @@
      (window . root)
      (window-height . 0.3))
 
-   ;; Compilation output goes to the right
+   ;; Compilation output goes to the left
    `(,(rx "*compilation*")
      display-buffer-in-side-window
-     (side . right)
+     (side . left)
      (slot . 0)
      (window-parameters . ((no-delete-other-windows . t)))
      (window-width . 0.4))
