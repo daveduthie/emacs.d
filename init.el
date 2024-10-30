@@ -16,8 +16,11 @@
 (require 'dd-tools)
 (require 'dd-clojure)
 (require 'dd-misc-lang)
+(require 'dd-haskell)
 (require 'dd-toggles)
 (require 'dd-snippets)
 (require 'dd-mac)
 (require 'dd-denote)
 (require 'dd-llms)
+(require 'dd-ligature)
+

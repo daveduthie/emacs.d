@@ -109,6 +109,9 @@
 [submodule "graphql-ts-mode"]
 	path = lib/graphql-ts-mode
 	url = https://git.sr.ht/~joram/graphql-ts-mode
+[submodule "haskell-ts-mode"]
+	path = lib/haskell-ts-mode
+	url = https://codeberg.org/pranshu/haskell-ts-mode
 [submodule "hcl-mode"]
 	path = lib/hcl-mode
 	url = https://github.com/hcl-emacs/hcl-mode
@@ -142,6 +145,9 @@
 [submodule "know-your-http-well"]
 	path = lib/know-your-http-well
 	url = https://github.com/for-GET/know-your-http-well
+[submodule "ligature"]
+	path = lib/ligature
+	url = https://github.com/mickeynp/ligature.el
 [submodule "literate-calc-mode"]
 	path = lib/literate-calc-mode
 	url = https://github.com/sulami/literate-calc-mode.el
