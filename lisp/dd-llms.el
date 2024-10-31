@@ -33,14 +33,14 @@
   :bind (("C-c RET" . #'gptel-send))
   :config
   (setq gptel-default-mode 'org-mode)
-  (setq gptel-model "llama3:latest"))
+  (setq gptel-model 'llama3.2))
 
 (use-package ellama
   :defer t
   :config
   (setopt ellama-provider
 	  (make-llm-ollama
-	   :chat-model "llama3:latest"
-	   :embedding-model "llama3:latest")))
+	   :chat-model "llama3.2"
+	   :embedding-model "llama3.2")))
 
 (provide 'dd-llms)
