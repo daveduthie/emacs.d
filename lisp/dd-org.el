@@ -5,6 +5,10 @@
   (interactive)
   (org-agenda nil "d"))
 
+(defun dd/setup-org ()
+  (setq-local line-spacing 0.1)
+  (setq-local truncate-lines nil))
+
 (use-package org
   :defer t
   :delight
@@ -16,7 +20,7 @@
 	 ("M-." . #'org-open-at-point)
 	 ("M-," . #'org-mark-ring-goto))
 
-  :hook (org-mode . (lambda () (setq-local line-spacing 0.1)))
+  :hook (org-mode . dd/setup-org)
 
   :config
 
