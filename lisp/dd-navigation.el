@@ -40,6 +40,9 @@
 	'(("buffer" grid)
 	  ("file" grid))))
 
+(use-package vertico-posframe
+  :config (vertico-posframe-mode 1))
+
 (use-package orderless
   :init
   (setq completion-styles '(orderless basic)))

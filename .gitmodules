@@ -247,6 +247,9 @@
 [submodule "vertico"]
 	path = lib/vertico
 	url = https://github.com/minad/vertico
+[submodule "vertico-posframe"]
+	path = lib/vertico-posframe
+	url = https://github.com/tumashu/vertico-posframe
 [submodule "vterm"]
 	path = lib/vterm
 	url = https://github.com/akermu/emacs-libvterm
