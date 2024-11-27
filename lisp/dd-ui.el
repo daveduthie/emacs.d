@@ -62,7 +62,7 @@
      display-buffer-in-side-window
      (side . bottom)
      (window . root)
-     (window-height . 0.3))
+     (window-height . 0.4))
 
    ;; Compilation output goes to the left
    `(,(rx "*compilation*")
@@ -103,6 +103,7 @@
   (pulse-momentary-highlight-one-line (point)))
 
 (dolist (command '(scroll-up-command
+		   ace-window
                    scroll-down-command
                    recenter-top-bottom
                    other-window))
