@@ -3,9 +3,7 @@
 (defun dd-llms--parse-json-resp ()
   (goto-char url-http-end-of-headers)
   (let ((json-object-type 'plist)
-	(json-key-type 'symbol)
-	;; (json-array-type 'vector)
-	)
+        (json-key-type 'symbol))
     (json-read)))
 
 (defun dd-llms--setup-ollama (&rest more)

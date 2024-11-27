@@ -196,9 +196,18 @@
 [submodule "pcre2el"]
 	path = lib/pcre2el
 	url = https://github.com/joddie/pcre2el
+[submodule "pdf-tools"]
+	path = lib/pdf-tools
+	url = https://github.com/vedang/pdf-tools
 [submodule "plz"]
 	path = lib/plz
 	url = https://github.com/alphapapa/plz.el
+[submodule "plz-event-source"]
+	path = lib/plz-event-source
+	url = https://github.com/r0man/plz-event-source
+[submodule "plz-media-type"]
+	path = lib/plz-media-type
+	url = https://github.com/r0man/plz-media-type
 [submodule "posframe"]
 	path = lib/posframe
 	url = https://github.com/tumashu/posframe
@@ -232,6 +241,9 @@
 [submodule "string-inflection"]
 	path = lib/string-inflection
 	url = https://github.com/akicho8/string-inflection
+[submodule "tablist"]
+	path = lib/tablist
+	url = https://github.com/emacsorphanage/tablist
 [submodule "tempel"]
 	path = lib/tempel
 	url = https://github.com/minad/tempel
