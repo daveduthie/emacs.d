@@ -21,6 +21,10 @@ clojurescript-mode
 (rfi ":<- [" p "]" n>)
 (ppp "[:pre (with-out-str (cljs.pprint/pprint {" p "}))]")
 
+graphql-ts-mode
+
+(doc "\"\"\"" n> p n> "\"\"\"")
+
 latex-mode
 
 (abstract "\\begin{abstract}\n" r> n> "\\end{abstract}")
