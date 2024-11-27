@@ -24,21 +24,23 @@
   (let ((url-request-method "GET"))
     (url-retrieve "http://127.0.0.1:11434/api/tags" #'dd-llms--setup-ollama)))
 
+(defcustom default-model 'qwen2.5-coder:7b "Default model")
+(defcustom default-chat-model 'llama3.1:latest "Default chat model")
+
 (use-package gptel
-  :init
-  (dd-llms--get-ollama-models)
+  :init (dd-llms--get-ollama-models)
   :commands (gptel gptel-send)
   :bind (("C-c RET" . #'gptel-send))
   :config
   (setq gptel-default-mode 'org-mode)
-  (setq gptel-model 'llama3.2:latest))
+  (setq gptel-model default-model))
 
 (use-package ellama
   :defer t
   :config
   (setopt ellama-provider
-	  (make-llm-ollama
-	   :chat-model "llama3.2:latest"
-	   :embedding-model "llama3.2:latest")))
+          (make-llm-ollama
+           :chat-model (symbol-name default-chat-model)
+           :embedding-model (symbol-name default-model))))
 
 (provide 'dd-llms)
