@@ -30,16 +30,21 @@
   (add-to-list 'treesit-language-source-alist
                '(graphql "https://github.com/bkegley/tree-sitter-graphql")))
 
-;; (defun dd/add-rust-pairs ()
-;;   (setq-local electric-pair-pairs (append electric-pair-pairs '((?< . ?>))))
-;;   (setq-local electric-pair-text-pairs electric-pair-pairs))
+(defun dd/add-rust-pairs ()
+  (setq-local electric-pair-pairs (append electric-pair-pairs '((?< . ?>))))
+  (setq-local electric-pair-text-pairs electric-pair-pairs))
 
 (use-package rust-ts-mode
   :mode ("\\.rs\\'")
   :hook
   (rust-ts-mode . eglot-ensure)
-  ;(rust-ts-mode . dd/add-rust-pairs)
+  (rust-ts-mode . dd/add-rust-pairs)
   )
+
+(use-package sgml-mode
+  :defer t
+  :config
+  (define-key html-mode-map "\M-o" nil))
 
 (use-package sqlformat
   :commands (sqlformat-buffer

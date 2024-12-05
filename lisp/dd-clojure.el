@@ -2,11 +2,9 @@
 (use-package clojure-mode
   :mode ("\\.clj(c|s)?\\'" . clojure-mode)
   :hook (clojure-mode . eglot-ensure)
-  :config
-  (setq clojure-toplevel-inside-comment-form t)
+  :config (setq clojure-toplevel-inside-comment-form t)
   :delight)
 
-;; Has some issues with indentation, and seems to break paredit somehow.
 (use-package clojure-ts-mode
   :disabled t
   :mode ("\\.clj(c|s)?\\'" . clojure-ts-mode)

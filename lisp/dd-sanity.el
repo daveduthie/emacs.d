@@ -26,6 +26,7 @@
 (use-package emacs
   :config
   (put 'downcase-region 'disabled nil)
-  (put 'upcase-region 'disabled nil))
+  (put 'upcase-region 'disabled nil)
+  (setq kill-buffer-query-functions nil))
 
 (provide 'dd-sanity)

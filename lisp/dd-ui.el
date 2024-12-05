@@ -62,7 +62,7 @@
      display-buffer-in-side-window
      (side . bottom)
      (window . root)
-     (window-height . 0.4))
+     (window-height . 0.3))
 
    ;; Compilation output goes to the left
    `(,(rx "*compilation*")

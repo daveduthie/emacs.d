@@ -28,10 +28,11 @@
 (defcustom default-chat-model 'llama3.1:latest "Default chat model")
 
 (use-package gptel
-  :init (dd-llms--get-ollama-models)
+  :defer 2
   :commands (gptel gptel-send)
   :bind (("C-c RET" . #'gptel-send))
   :config
+  (dd-llms--get-ollama-models)
   (setq gptel-default-mode 'org-mode)
   (setq gptel-model default-model))
 

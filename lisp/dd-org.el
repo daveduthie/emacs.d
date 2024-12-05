@@ -111,6 +111,9 @@
 (use-package ox-md
   :after org)
 
+(use-package ox-pandoc
+  :after ox)
+
 (use-package org-indent
   :hook org-mode
   :delight)

@@ -66,7 +66,9 @@
 ;;   :bind (("M-o" . #'other-window)))
 
 (use-package ace-window
-  :config (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+  (setq aw-dispatch-when-more-than 3)
   :bind (("M-o" . #'ace-window)))
 
 (use-package dired
@@ -83,10 +85,6 @@
 	 ("C-x p x" . #'consult-ripgrep)
 	 ("C-S-s" . #'consult-line)
 	 ("C-x r b" . #'consult-bookmark)))
-
-(use-package recentf
-  :defer 1
-  :init (recentf-mode 1))
 
 (use-package isearch
   :defer t

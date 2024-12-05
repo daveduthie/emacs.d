@@ -91,7 +91,8 @@
   (meow-global-mode 1)
 
   ;; Fix magit-ediff-dwim
-  (add-hook 'ediff-mode-hook #'meow-motion-mode))
+  ;; (add-hook 'ediff-mode-hook #'meow-motion-mode)
+  )
 
 (use-package paredit
   :delight
@@ -110,12 +111,12 @@
   :config (puni-global-mode))
 
 (use-package elec-pair
-  :disabled t
   :config (electric-pair-mode t))
 
 (use-package autorevert
   :delight arev
-  :init (global-auto-revert-mode 1))
+  :defer 3
+  :config (global-auto-revert-mode 1))
 
 (use-package which-key
   :delight

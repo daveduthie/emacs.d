@@ -58,8 +58,10 @@
   (add-hook 'prog-mode-hook 'indicate-buffer-boundaries-left))
 
 (use-package recentf
-  :demand t
-  :config (add-to-list 'recentf-exclude "^/\\(?:ssh\\|su\\|sudo\\)?x?:"))
+  :defer 1
+  :config
+  (add-to-list 'recentf-exclude "^/\\(?:ssh\\|su\\|sudo\\)?x?:")
+  (recentf-mode 1))
 
 (use-package savehist
   :config (savehist-mode))

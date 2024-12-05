@@ -33,10 +33,6 @@
   :config
   (setf epa-pinentry-mode 'loopback))
 
-(use-package ox-pandoc
-  :after ox
-  :defer t)
-
 (use-package hideshow
   :hook (prog-mode . hs-minor-mode)
   :bind (("s-<up>" . #'hs-hide-block)
@@ -101,5 +97,13 @@
   :defer t
   :config
   (setq ediff-window-setup-function 'ediff-setup-windows-plain))
+
+(use-package know-your-http-well
+  :load-path "lib/know-your-http-well/emacs"
+  :commands (http-header
+	     http-method
+	     http-relation
+	     http-status-code
+	     http-status-code))
 
 (provide 'dd-tools)
