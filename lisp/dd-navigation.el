@@ -33,15 +33,9 @@
   :after vertico
   :config
   (vertico-multiform-mode)
-  (setq vertico-multiform-commands
-	'(;(consult-ripgrep buffer)
-	  (consult-buffer grid)))
   (setq vertico-multiform-categories
-	'(("buffer" grid)
-	  ("file" grid))))
-
-(use-package vertico-posframe
-  :config (vertico-posframe-mode 1))
+	'(("file" grid)
+	  (jinx grid (vertico-grid-annotate . 20)))))
 
 (use-package orderless
   :init

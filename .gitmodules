@@ -208,9 +208,6 @@
 [submodule "plz-media-type"]
 	path = lib/plz-media-type
 	url = https://github.com/r0man/plz-media-type
-[submodule "posframe"]
-	path = lib/posframe
-	url = https://github.com/tumashu/posframe
 [submodule "prettier-js"]
 	path = lib/prettier-js
 	url = https://github.com/prettier/prettier-emacs
@@ -259,9 +256,6 @@
 [submodule "vertico"]
 	path = lib/vertico
 	url = https://github.com/minad/vertico
-[submodule "vertico-posframe"]
-	path = lib/vertico-posframe
-	url = https://github.com/tumashu/vertico-posframe
 [submodule "vterm"]
 	path = lib/vterm
 	url = https://github.com/akermu/emacs-libvterm
