@@ -33,6 +33,7 @@
   :config (add-hook 'ns-system-appearance-change-functions #'dd/apply-theme))
 
 (use-package face-remap
+  :disabled t
   :hook (org-mode . (lambda () (variable-pitch-mode t)))
   :delight buffer-face-mode)
 

@@ -55,6 +55,15 @@
 (use-package hippie-exp
   :bind ("C-M-/" . #'hippie-expand))
 
+(use-package cape
+  :config
+  (defun dd/eglot-capf ()
+    (setq-local completion-at-point-functions
+		(list
+		 #'tempel-complete
+		 #'cape-file
+		 #'eglot-completion-at-point)))
+  (add-hook 'eglot-managed-mode-hook #'dd/eglot-capf))
 
 (use-package compile
   :defer t

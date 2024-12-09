@@ -28,6 +28,16 @@
   :load-path "lib/vertico/extensions"
   :after vertico)
 
+(use-package vertico-directory
+  :after vertico
+  ;; More convenient directory navigation commands
+  :bind (:map vertico-map
+              ("RET"   . vertico-directory-enter)
+              ("DEL"   . vertico-directory-delete-char)
+              ("M-DEL" . vertico-directory-delete-word))
+  ;; Tidy shadowed file names
+  :hook (rfn-eshadow-update-overlay . vertico-directory-tidy))
+
 (use-package vertico-multiform
   :load-path "lib/vertico/extensions"
   :after vertico
@@ -68,7 +78,7 @@
 (use-package ace-window
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
-  (setq aw-dispatch-when-more-than 3)
+  (setq aw-dispatch-when-more-than 2)
   :bind (("M-o" . #'ace-window)))
 
 (use-package dired
