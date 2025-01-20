@@ -79,6 +79,9 @@
 [submodule "ellama"]
 	path = lib/ellama
 	url = https://github.com/s-kostyaev/ellama
+[submodule "emacs-everywhere"]
+	path = lib/emacs-everywhere
+	url = https://github.com/tecosaur/emacs-everywhere
 [submodule "emacsql"]
 	path = lib/emacsql
 	url = git@github.com:magit/emacsql.git
