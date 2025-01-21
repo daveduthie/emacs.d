@@ -73,9 +73,15 @@
 [submodule "doom-themes"]
 	path = lib/doom-themes
 	url = https://github.com/doomemacs/themes
+[submodule "eat"]
+	path = lib/eat
+	url = https://codeberg.org/akib/emacs-eat
 [submodule "eglot-tempel"]
 	path = lib/eglot-tempel
 	url = https://github.com/fejfighter/eglot-tempel
+[submodule "elisp-refs"]
+	path = lib/elisp-refs
+	url = https://github.com/Wilfred/elisp-refs
 [submodule "ellama"]
 	path = lib/ellama
 	url = https://github.com/s-kostyaev/ellama
@@ -121,6 +127,9 @@
 [submodule "hcl-mode"]
 	path = lib/hcl-mode
 	url = https://github.com/hcl-emacs/hcl-mode
+[submodule "helpful"]
+	path = lib/helpful
+	url = https://github.com/Wilfred/helpful
 [submodule "highlight-indent-guides"]
 	path = lib/highlight-indent-guides
 	url = https://github.com/DarthFennec/highlight-indent-guides
@@ -259,6 +268,9 @@
 [submodule "treepy"]
 	path = lib/treepy
 	url = git@github.com:volrath/treepy.el.git
+[submodule "treesit-auto"]
+	path = lib/treesit-auto
+	url = https://github.com/renzmann/treesit-auto
 [submodule "vertico"]
 	path = lib/vertico
 	url = https://github.com/minad/vertico
