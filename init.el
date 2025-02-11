@@ -1,9 +1,7 @@
 ;;; init.el --- user-init-file                    -*- lexical-binding: t -*-
 
-(load (expand-file-name "early-init.el" user-emacs-directory))
-
 (eval-and-compile
-  (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory)))
+  (add-to-list 'load-path (expand-file-name "lisp" (file-name-directory (or load-file-name user-emacs-directory)))))
 
 (require 'dd-early-birds)
 (require 'dd-long-tail)

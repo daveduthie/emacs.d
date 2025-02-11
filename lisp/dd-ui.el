@@ -10,7 +10,7 @@
 
 (setq-default fill-column 80)
 
-(set-face-attribute 'default nil :inherit nil :height 130 :family "Iosevka SS14")
+(set-face-attribute 'default nil :inherit nil :height 140 :family "Iosevka SS08")
 (set-face-attribute 'variable-pitch nil :inherit 'default :height 1.0 :family "Iosevka Etoile")
 
 (defun dd/apply-theme (appearance)
@@ -59,7 +59,8 @@
 	      "*scheme*"
 	      "*vterm"
 	      "*xref"
-	      "shell*"))
+	      "shell*"
+	      "eat*"))
      display-buffer-in-side-window
      (side . bottom)
      (window . root)

@@ -51,6 +51,9 @@
   :init
   (setq completion-styles '(orderless basic)))
 
+(use-package avy
+  :bind (("M-j" . #'avy-goto-char-timer)))
+
 (use-package savehist
   :init (savehist-mode))
 
@@ -89,10 +92,10 @@
   (add-hook 'dired-mode-hook #'dired-hide-details-mode))
 
 (use-package consult
-  :bind (("C-c i". #'consult-imenu)
-	 ("C-x p b" . #'consult-project-buffer)
+  :bind (("M-g i". #'consult-imenu)
+	 ("C-x p C-b" . #'consult-project-buffer)
 	 ("C-x b" . #'consult-buffer)
-	 ("C-x p x" . #'consult-ripgrep)
+	 ("M-s /" . #'consult-ripgrep)
 	 ("C-S-s" . #'consult-line)
 	 ("C-x r b" . #'consult-bookmark)))
 

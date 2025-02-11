@@ -21,7 +21,8 @@
   :delight outline-minor-mode)
 
 (use-package repeat
-  :config (repeat-mode))
+  :config (repeat-mode)
+  (setq repeat-echo-function 'repeat-echo-mode-line))
 
 (use-package emacs
   :config

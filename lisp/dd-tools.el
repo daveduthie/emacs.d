@@ -5,6 +5,7 @@
   (setq browse-at-remote-prefer-symbolic nil))
 
 (use-package vterm
+  :disabled t
   :bind (("C-x p v" . vterm))
   :config
   (define-advice vterm
@@ -12,6 +13,9 @@
     (setq default-directory (project-root (project-current)))
     (setq vterm-buffer-name (concat "*vterm " (project-name (project-current)) "*"))
     (apply orig-fun args)))
+
+(use-package eat
+  :bind (("C-x p t" . eat-project)))
 
 (use-package eshell-mode
   :defer t
@@ -26,7 +30,9 @@
 (use-package jinx
   :defer 2
   :config (global-jinx-mode)
-  :delight jinx-mode)
+  :delight jinx-mode
+  :bind (("M-$" . jinx-correct)
+         ("C-M-$" . jinx-languages)))
 
 (use-package epa
   :defer t

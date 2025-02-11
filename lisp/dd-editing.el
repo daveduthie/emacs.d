@@ -4,14 +4,12 @@
   :config
   (setq meow-cheatsheet-layout meow-cheatsheet-layout-qwerty)
   (setq meow-use-clipboard t)
-  ;; (meow-motion-overwrite-define-key
-  ;;  '("j" . meow-next)
-  ;;  '("k" . meow-prev)
-  ;;  '("<escape>" . ignore))
+  (setq meow-meow-keypad-leader-transparent t)
+  (meow-motion-define-key
+   '("j" . meow-next)
+   '("k" . meow-prev)
+   '("<escape>" . ignore))
   (meow-leader-define-key
-   ;; SPC j/k will run the original command in MOTION state.
-   '("j" . "H-j")
-   '("k" . "H-k")
    ;; Use SPC (0-9) for digit arguments.
    '("1" . meow-digit-argument)
    '("2" . meow-digit-argument)
@@ -96,7 +94,11 @@
 
 (use-package paredit
   :delight
-  :hook (prog-mode . enable-paredit-mode))
+  :hook (prog-mode . enable-paredit-mode)
+  :bind ("C-<backspace>" . paredit-backward-kill-word)
+  :config
+  (unbind-key "M-s" paredit-mode-map)
+  (unbind-key "M-?" paredit-mode-map))
 
 (use-package puni
   :disabled t
@@ -111,6 +113,7 @@
   :config (puni-global-mode))
 
 (use-package elec-pair
+  :disabled t
   :config (electric-pair-mode t))
 
 (use-package autorevert

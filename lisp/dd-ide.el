@@ -1,5 +1,11 @@
 ;; -*- lexical-binding: t; -*-
 
+(use-package treesit
+  :defer t
+  :config
+  (setq treesit-language-source-alist
+	'(("html" . ("https://github.com/tree-sitter/tree-sitter-html")))))
+
 (use-package eglot
   :defer 1
   :bind (("C-# ;" . #'eglot-code-actions)
@@ -25,7 +31,7 @@
 (use-package xref
   :bind (("M-." . #'xref-find-definitions)
          ("M-," . #'xref-go-back)
-         ("M-/" . #'xref-find-references)))
+         ("M-?" . #'xref-find-references)))
 
 (use-package corfu
   :bind
