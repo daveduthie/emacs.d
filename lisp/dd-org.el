@@ -144,7 +144,10 @@
 (use-package org-habit
   :after org)
 
+;; Nice to look up, but screws up navigation, as point does not 'stick' to the
+;; beginning of the line when navigating, folding, etc.
 (use-package org-modern
+  :disabled t
   :after org
   :config
   (global-org-modern-mode 1)

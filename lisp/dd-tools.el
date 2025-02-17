@@ -112,4 +112,7 @@
 	     http-status-code
 	     http-status-code))
 
+(use-package helpful
+  :bind (("C-h o" . #'helpful-symbol)))
+
 (provide 'dd-tools)

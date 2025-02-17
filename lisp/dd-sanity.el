@@ -22,7 +22,7 @@
 
 (use-package repeat
   :config (repeat-mode)
-  (setq repeat-echo-function 'repeat-echo-mode-line))
+  (setq repeat-echo-function 'repeat-echo-message))
 
 (use-package emacs
   :config

@@ -3,8 +3,9 @@
 (use-package treesit
   :defer t
   :config
-  (setq treesit-language-source-alist
-	'(("html" . ("https://github.com/tree-sitter/tree-sitter-html")))))
+  (setq-default treesit-language-source-alist
+		'((html . ("https://github.com/tree-sitter/tree-sitter-html"))
+		  (graphql . ("https://github.com/bkegley/tree-sitter-graphql")))))
 
 (use-package eglot
   :defer 1

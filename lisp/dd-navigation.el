@@ -62,18 +62,23 @@
   :config
   (meow-leader-define-key '("p". "C-x p")))
 
-(use-package ibuffer-project
+(use-package ibuffer-vc
   :defer t
   :init
-  (defun dd/enhance-ibuffer-with-ibuffer-project ()
-    "Set up integration for `ibuffer' with `ibuffer-project'."
-    (setq ibuffer-filter-groups (ibuffer-project-generate-filter-groups))
-    (unless (eq ibuffer-sorting-mode 'project-file-relative)
-      (ibuffer-do-sort-by-project-file-relative)))
-  (add-hook 'ibuffer-hook #'dd/enhance-ibuffer-with-ibuffer-project))
+  (add-hook 'ibuffer-hook
+	    (lambda ()
+	      (ibuffer-vc-set-filter-groups-by-vc-root)
+	      (unless (eq ibuffer-sorting-mode 'alphabetic)
+		(ibuffer-do-sort-by-alphabetic)))))
+
+(use-package all-the-icons-ibuffer
+  :hook (ibuffer-mode . all-the-icons-ibuffer-mode))
 
 (use-package winner
   :init (winner-mode))
+
+(use-package mouse
+  :bind (("s-n" . #'tear-off-window)))
 
 ;; (use-package window
 ;;   :bind (("M-o" . #'other-window)))

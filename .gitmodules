@@ -7,6 +7,12 @@
 [submodule "all-the-icons"]
 	path = lib/all-the-icons
 	url = https://github.com/domtronn/all-the-icons.el
+[submodule "all-the-icons-dired"]
+	path = lib/all-the-icons-dired
+	url = https://github.com/wyuenho/all-the-icons-dired
+[submodule "all-the-icons-ibuffer"]
+	path = lib/all-the-icons-ibuffer
+	url = https://github.com/seagle0128/all-the-icons-ibuffer
 [submodule "async"]
 	path = lib/async
 	url = https://github.com/jwiegley/emacs-async
@@ -82,9 +88,6 @@
 [submodule "elisp-refs"]
 	path = lib/elisp-refs
 	url = https://github.com/Wilfred/elisp-refs
-[submodule "ellama"]
-	path = lib/ellama
-	url = https://github.com/s-kostyaev/ellama
 [submodule "emacs-everywhere"]
 	path = lib/emacs-everywhere
 	url = https://github.com/tecosaur/emacs-everywhere
@@ -139,9 +142,9 @@
 [submodule "ht"]
 	path = lib/ht
 	url = https://github.com/Wilfred/ht.el
-[submodule "ibuffer-project"]
-	path = lib/ibuffer-project
-	url = https://github.com/muffinmad/emacs-ibuffer-project
+[submodule "ibuffer-vc"]
+	path = lib/ibuffer-vc
+	url = https://github.com/purcell/ibuffer-vc
 [submodule "inf-clojure"]
 	path = lib/inf-clojure
 	url = https://github.com/clojure-emacs/inf-clojure
@@ -169,9 +172,6 @@
 [submodule "llama"]
 	path = lib/llama
 	url = https://github.com/tarsius/llama
-[submodule "llm"]
-	path = lib/llm
-	url = https://github.com/ahyatt/llm
 [submodule "magit"]
 	path = lib/magit
 	url = git@github.com:magit/magit.git
@@ -214,15 +214,6 @@
 [submodule "pdf-tools"]
 	path = lib/pdf-tools
 	url = https://github.com/vedang/pdf-tools
-[submodule "plz"]
-	path = lib/plz
-	url = https://github.com/alphapapa/plz.el
-[submodule "plz-event-source"]
-	path = lib/plz-event-source
-	url = https://github.com/r0man/plz-event-source
-[submodule "plz-media-type"]
-	path = lib/plz-media-type
-	url = https://github.com/r0man/plz-media-type
 [submodule "prettier-js"]
 	path = lib/prettier-js
 	url = https://github.com/prettier/prettier-emacs
@@ -268,15 +259,9 @@
 [submodule "treepy"]
 	path = lib/treepy
 	url = git@github.com:volrath/treepy.el.git
-[submodule "treesit-auto"]
-	path = lib/treesit-auto
-	url = https://github.com/renzmann/treesit-auto
 [submodule "vertico"]
 	path = lib/vertico
 	url = https://github.com/minad/vertico
-[submodule "vterm"]
-	path = lib/vterm
-	url = https://github.com/akermu/emacs-libvterm
 [submodule "wgrep"]
 	path = lib/wgrep
 	url = https://github.com/mhayashi1120/Emacs-wgrep
