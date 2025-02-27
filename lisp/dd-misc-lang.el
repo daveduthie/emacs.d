@@ -2,9 +2,21 @@
 
 (use-package terraform-mode
   :mode ("\\.tf\\'" . terraform-mode)
+  :config
+  (defun dd/terraform-search-resource ()
+    ;; WIP
+    (browse-url
+     (format "https://duckduckgo.com/?q=%s"
+	     (url-hexify-string (concat "terraform " "google_project_iam_binding")))))
+
+  (defun dd/disable-electric-indent-local-mode ()
+    (electric-indent-local-mode 0))
+
   :hook
   (terraform-mode . eglot-ensure)
-  (terraform-mode . electric-pair-mode))
+  (terraform-mode . electric-pair-mode)
+  (terraform-mode . dd/disable-electric-indent-local-mode)
+  (terraform-mode . terraform-format-on-save-mode))
 
 (use-package markdown-mode
   :mode ("\\.md\\'" . markdown-mode))
@@ -28,7 +40,7 @@
   :mode ("\\.graphql\\'" "\\.gql\\'")
   :config
   (add-to-list 'treesit-language-source-alist
-               '(graphql "https://github.com/bkegley/tree-sitter-graphql")))
+	       '(graphql "https://github.com/bkegley/tree-sitter-graphql")))
 
 (defun dd/add-rust-pairs ()
   (setq-local electric-pair-pairs (append electric-pair-pairs '((?< . ?>))))

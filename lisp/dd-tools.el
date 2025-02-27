@@ -113,6 +113,12 @@
 	     http-status-code))
 
 (use-package helpful
+  ;TODO(dd) bind the other helpful commands
   :bind (("C-h o" . #'helpful-symbol)))
+
+(use-package compile
+  ;; Tell CLI tools to use plain output in compilation buffers
+  :config (defun dd/comp-mode-no-tty () (setq-local process-connection-type nil))
+  :hook (compilation-mode . dd/comp-mode-no-tty))
 
 (provide 'dd-tools)

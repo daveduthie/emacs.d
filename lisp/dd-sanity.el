@@ -28,6 +28,7 @@
   :config
   (put 'downcase-region 'disabled nil)
   (put 'upcase-region 'disabled nil)
-  (setq kill-buffer-query-functions nil))
+  (setq kill-buffer-query-functions nil)
+  (setq-default word-wrap t))
 
 (provide 'dd-sanity)

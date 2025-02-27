@@ -51,14 +51,14 @@
 (defconst dd/display-buffer-rules
   (list
    ;; Show shells & references at the bottom of the frame
-   `(,(rx (or "*Embark Export"
+   `(,(rx (or ;"*Embark Export"
 	      "*SQL"
 	      "*cider-repl"
 	      "*grep"
 	      "*inf-clojure"
 	      "*scheme*"
 	      "*vterm"
-	      "*xref"
+	      ;; "*xref"
 	      "shell*"
 	      "eat*"))
      display-buffer-in-side-window
@@ -72,7 +72,7 @@
      (side . left)
      (slot . 0)
      (window-parameters . ((no-delete-other-windows . t)))
-     (window-width . 0.4))
+     (window-width . 0.3))
 
    `((or ,(rx "*Org Agenda*")
 	 (and (derived-mode . org-mode)
