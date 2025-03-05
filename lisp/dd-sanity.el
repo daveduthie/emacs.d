@@ -31,4 +31,8 @@
   (setq kill-buffer-query-functions nil)
   (setq-default word-wrap t))
 
+(defmacro comment (&rest sexp) nil)
+
+(put 'narrow-to-region 'disabled nil)
+
 (provide 'dd-sanity)
