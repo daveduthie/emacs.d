@@ -112,6 +112,9 @@
 [submodule "f"]
 	path = lib/f
 	url = https://github.com/rejeep/f.el
+[submodule "fish-mode"]
+	path = lib/fish-mode
+	url = https://github.com/wwwjfy/emacs-fish
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
@@ -160,6 +163,9 @@
 [submodule "kaocha-runner"]
 	path = lib/kaocha-runner
 	url = https://github.com/magnars/kaocha-runner.el
+[submodule "keycast"]
+	path = lib/keycast
+	url = https://github.com/tarsius/keycast
 [submodule "know-your-http-well"]
 	path = lib/know-your-http-well
 	url = https://github.com/for-GET/know-your-http-well
