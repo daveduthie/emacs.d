@@ -5,10 +5,10 @@
   :config
   (defun dd/terraform-search-resource ()
     ;; WIP
+    (interactive)
     (browse-url
      (format "https://duckduckgo.com/?q=%s"
-	     (url-hexify-string (concat "terraform " "google_project_iam_binding")))))
-
+	     (url-hexify-string (concat "terraform " (thing-at-point 'symbol))))))
   (defun dd/disable-electric-indent-local-mode ()
     (electric-indent-local-mode 0))
 

@@ -52,7 +52,9 @@
 	  (consult-location buffer)
 	  (consult-grep buffer)
 	  (imenu buffer)
-	  (jinx grid reverse (vertico-grid-annotate . 20))
+	  (jinx grid
+		;; reverse
+		(vertico-grid-annotate . 20))
 	  ;; ("" reverse)
 	  )))
 

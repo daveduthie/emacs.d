@@ -15,7 +15,10 @@
     (apply orig-fun args)))
 
 (use-package eat
-  :bind (("C-x p t" . eat-project)))
+  :bind (("C-x p t" . eat-project)
+	 :map eat-semi-char-mode-map
+	 ("M-j" . nil)
+	 ("M-o" . nil)))
 
 (use-package eshell-mode
   :defer t
@@ -113,8 +116,11 @@
 	     http-status-code))
 
 (use-package helpful
-  ;TODO(dd) bind the other helpful commands
-  :bind (("C-h o" . #'helpful-symbol)))
+  :bind (("C-h o" . #'helpful-symbol)
+	 ("C-h f" . #'helpful-callable)
+	 ("C-h v" . #'helpful-variable)
+	 ("C-h k" . #'helpful-key)
+	 ("C-h x" . #'helpful-command)))
 
 (use-package compile
   ;; Tell CLI tools to use plain output in compilation buffers

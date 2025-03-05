@@ -17,8 +17,8 @@
   "Load theme, taking current system APPEARANCE into consideration."
   (mapc #'disable-theme custom-enabled-themes)
   (pcase appearance
-    ('light (load-theme 'modus-operandi))
-    ('dark (load-theme 'modus-vivendi))))
+    ('light (load-theme 'modus-operandi t))
+    ('dark (load-theme 'doom-rouge t))))
 
 (use-package modus-themes
   :defer t
