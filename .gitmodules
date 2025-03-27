@@ -79,6 +79,9 @@
 [submodule "doom-themes"]
 	path = lib/doom-themes
 	url = https://github.com/doomemacs/themes
+[submodule "dumb-jump"]
+	path = lib/dumb-jump
+	url = https://github.com/jacktasia/dumb-jump
 [submodule "eat"]
 	path = lib/eat
 	url = https://codeberg.org/akib/emacs-eat
@@ -118,6 +121,9 @@
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
+[submodule "git-timemachine"]
+	path = lib/git-timemachine
+	url = https://codeberg.org/pidu/git-timemachine
 [submodule "go-mode"]
 	path = lib/go-mode
 	url = https://github.com/dominikh/go-mode.el
@@ -220,6 +226,9 @@
 [submodule "pdf-tools"]
 	path = lib/pdf-tools
 	url = https://github.com/vedang/pdf-tools
+[submodule "popup"]
+	path = lib/popup
+	url = https://github.com/auto-complete/popup-el
 [submodule "prettier-js"]
 	path = lib/prettier-js
 	url = https://github.com/prettier/prettier-emacs
@@ -265,6 +274,9 @@
 [submodule "treepy"]
 	path = lib/treepy
 	url = git@github.com:volrath/treepy.el.git
+[submodule "treesit-fold"]
+	path = lib/treesit-fold
+	url = https://github.com/emacs-tree-sitter/treesit-fold
 [submodule "vertico"]
 	path = lib/vertico
 	url = https://github.com/minad/vertico
