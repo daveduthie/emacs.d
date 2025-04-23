@@ -85,6 +85,9 @@
 [submodule "eat"]
 	path = lib/eat
 	url = https://codeberg.org/akib/emacs-eat
+[submodule "edit-indirect"]
+	path = lib/edit-indirect
+	url = https://github.com/Fanael/edit-indirect
 [submodule "eglot-tempel"]
 	path = lib/eglot-tempel
 	url = https://github.com/fejfighter/eglot-tempel
@@ -199,6 +202,9 @@
 [submodule "meow"]
 	path = lib/meow
 	url = https://github.com/meow-edit/meow
+[submodule "nix-ts-mode"]
+	path = lib/nix-ts-mode
+	url = https://github.com/nix-community/nix-ts-mode
 [submodule "ns-auto-titlebar"]
 	path = lib/ns-auto-titlebar
 	url = https://github.com/purcell/ns-auto-titlebar
