@@ -55,6 +55,9 @@
 [submodule "corfu"]
 	path = lib/corfu
 	url = https://github.com/minad/corfu
+[submodule "csv-mode"]
+	path = lib/csv-mode
+	url = git@github.com:emacsmirror/csv-mode.git
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
@@ -94,6 +97,9 @@
 [submodule "elisp-refs"]
 	path = lib/elisp-refs
 	url = https://github.com/Wilfred/elisp-refs
+[submodule "elpaca"]
+	path = lib/elpaca
+	url = https://github.com/progfolio/elpaca
 [submodule "emacs-everywhere"]
 	path = lib/emacs-everywhere
 	url = https://github.com/tecosaur/emacs-everywhere
@@ -154,6 +160,9 @@
 [submodule "ht"]
 	path = lib/ht
 	url = https://github.com/Wilfred/ht.el
+[submodule "htmlize"]
+	path = lib/htmlize
+	url = https://github.com/hniksic/emacs-htmlize
 [submodule "ibuffer-vc"]
 	path = lib/ibuffer-vc
 	url = https://github.com/purcell/ibuffer-vc
@@ -166,9 +175,6 @@
 [submodule "jarchive"]
 	path = lib/jarchive
 	url = https://git.sr.ht/~dannyfreeman/jarchive
-[submodule "jinx"]
-	path = lib/jinx
-	url = https://github.com/minad/jinx
 [submodule "kaocha-runner"]
 	path = lib/kaocha-runner
 	url = https://github.com/magnars/kaocha-runner.el
