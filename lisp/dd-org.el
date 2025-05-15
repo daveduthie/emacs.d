@@ -47,7 +47,8 @@
 	    ;; My top priority for the day
 	    (tags-todo "+PRIORITY=\"A\""
 		       ((org-agenda-overriding-header "Top priority")
-			(org-agenda-skip-function '(org-agenda-skip-if nil '(scheduled deadline)))))
+			;;(org-agenda-skip-function '(org-agenda-skip-if nil '(scheduled deadline)))
+			))
 	    ;; Unprocessed inbox items
 	    (tags "inbox"
 		  ((org-agenda-overriding-header "Inbox")
@@ -72,9 +73,8 @@
 		    ((org-agenda-skip-function
 		      '(org-agenda-skip-entry-if 'deadline))
 		     (org-deadline-warning-days 0)))
-	    (todo "NEXT"
-		  ((org-agenda-skip-function
-		    '(org-agenda-skip-entry-if 'deadline))
+	    (todo "TODO"
+		  ((org-agenda-skip-function '(org-agenda-skip-entry-if 'deadline))
 		   (org-agenda-prefix-format "  %i %-12:c [%e] ")
 		   (org-agenda-overriding-header "\nTasks\n")))
 	    (agenda nil
@@ -82,7 +82,7 @@
 		     (org-agenda-format-date "")
 		     (org-deadline-warning-days 7)
 		     (org-agenda-skip-function
-		      '(org-agenda-skip-entry-if 'notregexp "\\* NEXT"))
+		      '(org-agenda-skip-entry-if 'notregexp "\\* TODO"))
 		     (org-agenda-overriding-header "\nDeadlines")))
 	    (tags-todo "inbox"
                        ((org-agenda-prefix-format "  %?-12t% s")
@@ -129,12 +129,15 @@
      (shell . t))))
 
 (use-package org-tempo
+  :defer 1
   :after org)
 
 (use-package ox-md
+  :defer 2
   :after org)
 
 (use-package ox-pandoc
+  :defer 2
   :after ox)
 
 (use-package org-indent
@@ -144,7 +147,7 @@
 (use-package org-habit
   :after org)
 
-;; Nice to look up, but screws up navigation, as point does not 'stick' to the
+;; Nice to look at, but screws up navigation, as point does not 'stick' to the
 ;; beginning of the line when navigating, folding, etc.
 (use-package org-modern
   :disabled t
@@ -154,6 +157,7 @@
   (setq org-modern-table nil))
 
 (use-package ob-clojure
+  :defer 2
   :after org
   :config
   (setq org-babel-clojure-backend 'cider))

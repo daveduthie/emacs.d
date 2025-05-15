@@ -1,11 +1,15 @@
 ;; -*- lexical-binding: t; -*-
+(use-package dumb-jump
+  :defer t
+  :init (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
 
 (use-package treesit
   :defer t
   :config
   (setq-default treesit-language-source-alist
 		'((html . ("https://github.com/tree-sitter/tree-sitter-html"))
-		  (graphql . ("https://github.com/bkegley/tree-sitter-graphql")))))
+		  (graphql . ("https://github.com/bkegley/tree-sitter-graphql"))
+		  (nix . ("https://github.com/nix-community/tree-sitter-nix")))))
 
 (use-package eglot
   :defer 1

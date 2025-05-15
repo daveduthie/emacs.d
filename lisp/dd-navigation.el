@@ -1,9 +1,7 @@
 ;; -*- lexical-binding: t; -*-
 
 (use-package tab-bar
-  :bind (("M-[" . #'tab-bar-switch-to-prev-tab)
-	 ("M-]" . #'tab-bar-switch-to-next-tab)
-	 ("M-t" . #'tab-new)
+  :bind (("M-T" . #'tab-new)
 	 ("M-W" . #'tab-close))
   :config
   (setq tab-bar-tab-name-function

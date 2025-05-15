@@ -1,5 +1,9 @@
 ;; -*- lexical-binding: t; -*-
 
+(use-package nix-ts-mode
+  :init (defalias 'nix-mode 'nix-ts-mode) ; hack for org src blocks
+  :mode ("\\.nix\\'" . nix-ts-mode))
+
 (use-package terraform-mode
   :mode ("\\.tf\\'" . terraform-mode)
   :config

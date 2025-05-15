@@ -27,6 +27,17 @@
 	     zprint-format-on-save-mode)
   :delight zprint-format-on-save-mode)
 
+;;;###autoload (autoload 'standard-clojure-format-buffer "standard-clojure-format" nil t)
+;;;###autoload (autoload 'standard-clojure-format-region "standard-clojure-format" nil t)
+;;;###autoload (autoload 'standard-clojure-format-on-save-mode "standard-clojure-format" nil t)
+(reformatter-define standard-clojure-format
+  :program "standard-clj"
+  :args (append '("fix") (list input-file))
+  :stdin nil
+  :stdout nil
+  :lighter "stdclj"
+  :group 'standard-clojure-format)
+
 (use-package jarchive
   :hook (clojure-mode . jarchive-mode)
   :delight)
@@ -76,6 +87,36 @@
 	   (resp (cider-nrepl-sync-request:eval register-text)))
     (message (ansi-color-apply (nrepl-dict-get resp "out")))))
 
+(defun dd/letdefs ()
+  "Transform Clojure bindings by wrapping each value with a def. It's tied to paredit"
+  (interactive)
+  (down-list) ; Move into the opening '['
+  (condition-case nil
+      (while t
+	(let ((var-name (thing-at-point 'symbol)))
+	  (forward-sexp)
+	  (paredit-wrap-round)
+	  (insert "def ")
+	  (insert var-name)
+	  (up-list)
+	  (forward-sexp)
+	  (backward-sexp)))  
+    (error nil)))
+
+(defun dd/letdefs-undo ()
+  "Transform Clojure bindings by unwrapping each value. It's tied to paredit"
+  (interactive)
+  (down-list) ; Move into the opening '['
+  (condition-case nil
+      (while t
+	(forward-sexp)
+	(down-list)
+	(forward-sexp 2)
+	(paredit-raise-sexp)
+	(forward-sexp)
+	(backward-sexp))  
+    (error nil)))
+
 (use-package cider
   :hook (clojure-mode . cider-mode)
   :bind (:map clojure-mode-map
@@ -85,6 +126,7 @@
 	      ;; TODO: bind dd/cider-eval-register
 	      )
   :config
+  (unbind-key "C-c RET" cider-mode-map)
   (define-advice cider--ssh-hosts
       (:around (orig-fn &rest args) dd-disable-cider-ssh-host-retrieval nil))
   (setq markdown-indent-on-enter nil)

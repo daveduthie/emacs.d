@@ -30,6 +30,7 @@
   :load-path "lisp"
   :commands (dd-toggl-start-from-region dd-toggl-stop-current-task))
 
+;; obtained from nixpkgs
 (use-package jinx
   :defer 2
   :config (global-jinx-mode)

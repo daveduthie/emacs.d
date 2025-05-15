@@ -93,11 +93,13 @@
   )
 
 (use-package paredit
+  ;; :disabled t
   :delight
   :hook (prog-mode . enable-paredit-mode)
   :bind ("C-<backspace>" . paredit-backward-kill-word)
   :config
   (unbind-key "M-s" paredit-mode-map)
+  (unbind-key "M-q" paredit-mode-map)
   (unbind-key "M-?" paredit-mode-map))
 
 (use-package puni

@@ -14,6 +14,11 @@ prog-mode
 
 clojure-mode
 
+(fixme comment-start comment-start "FIXME(dd) ")
+(todo  comment-start comment-start "TODO(dd) ")
+(bug   comment-start comment-start "BUG(dd) ")
+(hack  comment-start comment-start "HACK(dd) ")
+
 (cll ";; -----------------------------------------------------------------------------" n ";; ")
 
 clojurescript-mode

@@ -10,15 +10,15 @@
 
 (setq-default fill-column 80)
 
-(set-face-attribute 'default nil :inherit nil :height 140 :family "Iosevka SS08")
+(set-face-attribute 'default nil :inherit nil :height 140 :family "Iosevka SS14")
 (set-face-attribute 'variable-pitch nil :inherit 'default :height 1.0 :family "Iosevka Etoile")
 
 (defun dd/apply-theme (appearance)
   "Load theme, taking current system APPEARANCE into consideration."
   (mapc #'disable-theme custom-enabled-themes)
   (pcase appearance
-    ('light (load-theme 'modus-operandi t))
-    ('dark (load-theme 'doom-rouge t))))
+    ('light (load-theme 'modus-operandi-tinted t))
+    ('dark (load-theme 'modus-vivendi-tinted t))))
 
 (use-package modus-themes
   :defer t
@@ -43,6 +43,15 @@
   :init (global-hl-line-mode t))
 
 ;;; Buffer rules
+
+(defun dd/convert-side-to-regular-window ()
+  "Convert the current side window to a regular window."
+  (interactive)
+  (let ((buffer (current-buffer)))
+    (when (window-parameter nil 'window-side)
+      (let ((display-buffer-alist nil))
+        (delete-window)
+        (pop-to-buffer buffer)))))
 
 (setq switch-to-buffer-in-dedicated-window 'pop)
 (setq switch-to-buffer-obey-display-actions t)

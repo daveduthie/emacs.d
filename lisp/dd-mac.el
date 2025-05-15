@@ -7,9 +7,7 @@
 
 (use-package exec-path-from-shell
   :if (memq window-system '(mac ns))
-  :config
-  (setq exec-path-from-shell-arguments nil)
-  (exec-path-from-shell-initialize))
+  :config (exec-path-from-shell-initialize))
 
 (use-package ns-auto-titlebar
   :if (memq window-system '(mac ns))
