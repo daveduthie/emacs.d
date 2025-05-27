@@ -14,6 +14,7 @@ prog-mode
 
 clojure-mode
 
+(!z ";!zprint {:format :skip}")
 (fixme comment-start comment-start "FIXME(dd) ")
 (todo  comment-start comment-start "TODO(dd) ")
 (bug   comment-start comment-start "BUG(dd) ")

@@ -4,7 +4,7 @@
   :defer t
   :bind (("C-c RET" . gptel-send))
   :init
-  (setq gptel-model 'gpt-4o)
+  (setq gptel-model 'gpt-4.1)
   (setq gptel-default-mode 'org-mode)
   
   :config
